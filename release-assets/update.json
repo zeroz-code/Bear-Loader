@@ -1,0 +1,54 @@
+{
+  "version": "3.8.0",
+  "build": "1.0",
+  "variants": {
+    "GL": {
+      "apk": {
+        "name": "BearMod_GL_3.8.0.apk",
+        "url": "https://github.com/kothar-1992/Bear-Loader/releases/download/v3.8.0/BearMod_GL_3.8.0.apk",
+        "sha256": "___REPLACE_WITH_HASH___"
+      },
+      "obb": {
+        "name": "main.19925.com.tencent.ig.obb",
+        "url": "https://github.com/kothar-1992/Bear-Loader/releases/download/v3.8.0/main.19925.com.tencent.ig.obb",
+        "sha256": "___REPLACE_WITH_HASH___"
+      }
+    },
+    "KR": {
+      "apk": {
+        "name": "BearMod_KR_3.8.0.apk",
+        "url": "https://github.com/kothar-1992/Bear-Loader/releases/download/v3.8.0/BearMod_KR_3.8.0.apk",
+        "sha256": "___REPLACE_WITH_HASH___"
+      },
+      "obb": {
+        "name": "main.19925.com.pubg.krmobile.obb",
+        "url": "https://github.com/kothar-1992/Bear-Loader/releases/download/v3.8.0/main.19925.com.pubg.krmobile.obb",
+        "sha256": "___REPLACE_WITH_HASH___"
+      }
+    },
+    "TW": {
+      "apk": {
+        "name": "BearMod_TW_3.8.0.apk",
+        "url": "https://github.com/kothar-1992/Bear-Loader/releases/download/v3.8.0/BearMod_TW_3.8.0.apk",
+        "sha256": "___REPLACE_WITH_HASH___"
+      },
+      "obb": {
+        "name": "main.19925.com.rekoo.pubgm.obb",
+        "url": "https://github.com/kothar-1992/Bear-Loader/releases/download/v3.8.0/main.19925.com.rekoo.pubgm.obb",
+        "sha256": "___REPLACE_WITH_HASH___"
+      }
+    },
+    "VNG": {
+      "apk": {
+        "name": "BearMod_VNG_3.8.0.apk",
+        "url": "https://github.com/kothar-1992/Bear-Loader/releases/download/v3.8.0/BearMod_VNG_3.8.0.apk",
+        "sha256": "___REPLACE_WITH_HASH___"
+      },
+      "obb": {
+        "name": "main.19925.com.vng.pubgmobile.obb",
+        "url": "https://github.com/kothar-1992/Bear-Loader/releases/download/v3.8.0/main.19925.com.vng.pubgmobile.obb",
+        "sha256": "___REPLACE_WITH_HASH___"
+      }
+    }
+  }
+}
