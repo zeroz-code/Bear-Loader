@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardVariant"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:layout_marginHorizontal="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/md3_surface_container"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="12dp"
+    app:rippleColor="@color/accent_color"
+    app:strokeColor="@color/accent_color"
+    app:strokeWidth="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Top Row: Icon and Info -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp"
+            android:baselineAligned="false">
+
+            <!-- Enhanced PUBG Variant Icon -->
+            <FrameLayout
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/button_3d_modern"
+                android:elevation="4dp">
+
+                <ImageView
+                    android:id="@+id/ivVariantFlag"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_pubg_mobile_official_new"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/pubg_mobile_global"
+                    tools:src="@drawable/ic_pubg_mobile_official_new" />
+
+                <!-- Version Status Badge -->
+                <TextView
+                    android:id="@+id/tvVersionStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/button_3d_modern"
+                    android:text="@string/version_latest"
+                    android:textColor="@color/text_on_accent"
+                    android:textSize="8sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="2dp"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+            <!-- Enhanced Variant Info -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvVariantName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/pubg_mobile_global"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.02" />
+
+                    <!-- NEW Badge -->
+                    <TextView
+                        android:id="@+id/tvNewBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/button_3d_modern"
+                        android:backgroundTint="@color/accent_color"
+                        android:text="NEW"
+                        android:textColor="@color/text_on_accent"
+                        android:textSize="10sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="2dp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvVariantDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/pubg_global_description"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:id="@+id/tvVariantSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="APK: 150 MB • OBB: 1.2 GB"
+                    android:textColor="@color/text_hint"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Modern Progress Bar (Initially Hidden) -->
+        <include
+            android:id="@+id/layoutProgress"
+            layout="@layout/layout_modern_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Action Buttons Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Download Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDownload"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/download"
+                android:textSize="14sp"
+                app:backgroundTint="@color/accent_color"
+                app:cornerRadius="24dp"
+                app:icon="@drawable/ic_download"
+                app:iconSize="18dp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/text_on_accent"
+                style="@style/Widget.Material3.Button.UnelevatedButton" />
+
+            <!-- Update Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUpdate"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/update"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:backgroundTint="@color/md3_secondary"
+                app:cornerRadius="24dp"
+                app:icon="@drawable/ic_system_update"
+                app:iconSize="18dp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/md3_on_secondary"
+                style="@style/Widget.Material3.Button.UnelevatedButton" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

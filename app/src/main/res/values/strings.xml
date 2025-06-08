@@ -1,0 +1,137 @@
+<resources>
+    <string name="app_name">BEAR-MOD</string>
+
+    <!-- Login Screen -->
+    <string name="app_title">BEAR-MOD</string>
+    <string name="license_key_hint">Enter your license key</string>
+    <string name="remember_key">Remember Key</string>
+    <string name="automatic_login">Automatic login</string>
+    <string name="login_button">Login</string>
+    <string name="version">1.0.6</string>
+    <string name="paste_license">Paste license key</string>
+
+    <!-- Bear Logo -->
+    <string name="bear_logo_description">Bear-Mod Application Logo</string>
+
+    <!-- License Status Display -->
+    <string name="license_status_title">License Status</string>
+    <string name="license_status_icon">License status indicator</string>
+    <string name="status_initializing">Initializing</string>
+    <string name="status_valid">Valid</string>
+    <string name="status_invalid">Invalid</string>
+    <string name="status_expired">Expired</string>
+    <string name="status_checking">Checking</string>
+    <string name="initializing_keyauth">Initializing KeyAuth application...</string>
+    <string name="license_expiry_label">Expires:</string>
+    <string name="license_expiry_placeholder">--/--/----</string>
+    <string name="license_duration_label">Remaining:</string>
+    <string name="license_duration_placeholder">-- days</string>
+    <string name="expiry_icon">License expiry indicator</string>
+    <string name="duration_icon">License duration indicator</string>
+
+    <!-- Messages -->
+    <string name="initializing">Initializing application...</string>
+    <string name="authenticating">Authenticating...</string>
+    <string name="login_successful">Login successful!</string>
+    <string name="login_failed">Login failed</string>
+    <string name="network_error">Network error. Please check your connection.</string>
+    <string name="invalid_license">Invalid license key</string>
+    <string name="license_expired">License key has expired</string>
+    <string name="license_key_required">Please enter a license key</string>
+
+    <!-- Main Activity -->
+    <string name="welcome_message">Welcome to KeyAuth Loader!</string>
+    <string name="logout">Logout</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_update">Update</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Home Fragment -->
+    <string name="select_game">Select PUBG Mobile Variant</string>
+    <string name="user_info_title">User Information</string>
+    <string name="loading_username">Username: Loading...</string>
+    <string name="loading_subscription">Subscription: Loading...</string>
+    <string name="app_info_title">Application Info</string>
+    <string name="app_version_info">Version 1.0.6</string>
+    <string name="app_description">KeyAuth Loader with OTA update system</string>
+
+    <!-- Update Fragment -->
+    <string name="app_updates">App Updates</string>
+    <string name="current_version">Current Version</string>
+    <string name="last_update_check">Last checked: Never</string>
+    <string name="checking_updates">Checking for updates...</string>
+    <string name="check_for_updates">Check for Updates</string>
+    <string name="app_up_to_date">App is up to date</string>
+    <string name="app_up_to_date_description">You are running the latest version of KeyAuth Loader</string>
+    <string name="available_versions">Available Versions</string>
+    <string name="no_variants_available">No Variants Available</string>
+    <string name="no_variants_description">No downloadable versions available at the moment. Please try again later.</string>
+    <string name="loading_failed">Loading Failed</string>
+    <string name="loading_failed_description">Unable to load version information</string>
+    <string name="retry">Retry</string>
+
+    <!-- Settings Fragment -->
+    <string name="settings_title">Settings</string>
+    <string name="user_profile">User Profile</string>
+    <string name="user_account">User Account</string>
+    <string name="language_settings">Language Settings</string>
+    <string name="language_description">Choose your preferred language</string>
+    <string name="switch_language">Switch Language</string>
+    <string name="current_language">Current Language: English</string>
+    <string name="app_settings">App Settings</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="app_actions">App Actions</string>
+    <string name="app_actions_description">Manage application data and account settings</string>
+    <string name="clear_data">Clear Data</string>
+    <string name="clear_data_description">Clear app cache and downloaded files</string>
+    <string name="logout_description">Sign out of your account</string>
+
+    <!-- Error Messages -->
+    <string name="error_occurred">An error occurred</string>
+    <string name="try_again">Try Again</string>
+    <string name="connection_timeout">Connection timeout</string>
+
+    <!-- OTA Update System -->
+    <string name="variant_file_sizes">APK: %1$s • OBB: %2$s</string>
+    <string name="download_variant">Download %1$s</string>
+    <string name="unknown_size">Unknown</string>
+
+    <!-- PUBG Mobile Variants - Main supported versions only -->
+    <string name="pubg_mobile_global">PUBG Mobile Global</string>
+    <string name="pubg_mobile_korea">PUBG Mobile Korea</string>
+    <string name="pubg_mobile_taiwan">PUBG Mobile Taiwan</string>
+    <string name="pubg_mobile_vietnam">PUBG Mobile Vietnam</string>
+    <string name="pubg_mobile_india">BGMI (Battlegrounds Mobile India)</string>
+
+    <string name="pubg_global_description">Global version with worldwide support and latest features</string>
+    <string name="pubg_korea_description">Korean version optimized for Korea region with local features</string>
+    <string name="pubg_taiwan_description">Taiwan version with traditional Chinese support and regional content</string>
+    <string name="pubg_vietnam_description">Vietnam version with local optimizations and regional features</string>
+    <string name="pubg_india_description">Battlegrounds Mobile India - exclusive version for Indian players</string>
+
+    <!-- Download/Update Actions -->
+    <string name="download">Download</string>
+    <string name="update">Update</string>
+    <string name="install">Install</string>
+    <string name="downloading">Downloading</string>
+    <string name="updating">Updating</string>
+    <string name="installing">Installing</string>
+
+    <!-- Status Badges -->
+    <string name="new_variant">NEW</string>
+    <string name="popular_variant">POPULAR</string>
+    <string name="recommended_variant">RECOMMENDED</string>
+
+    <!-- File Size and Progress -->
+    <string name="file_size_unknown">Size: Unknown</string>
+    <string name="download_progress">%1$d%% • %2$s/s • %3$s remaining</string>
+    <string name="download_speed">%1$s/s</string>
+    <string name="eta_remaining">%1$s remaining</string>
+
+    <!-- Version Status -->
+    <string name="version_latest">Latest Version</string>
+    <string name="version_outdated">Update Available</string>
+    <string name="version_not_installed">Not Installed</string>
+</resources>

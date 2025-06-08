@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">熊猫模组</string>
+
+    <!-- Login Screen -->
+    <string name="app_title">熊猫模组</string>
+    <string name="license_key_hint">请输入您的许可证密钥</string>
+    <string name="remember_key">记住密钥</string>
+    <string name="automatic_login">自动登录</string>
+    <string name="login_button">登录</string>
+    <string name="version">版本 1.0.6</string>
+    <string name="paste_license">粘贴许可证密钥</string>
+
+    <!-- Bear Logo -->
+    <string name="bear_logo_description">熊猫模组应用程序标志</string>
+
+    <!-- License Status Display -->
+    <string name="license_status_title">许可证状态</string>
+    <string name="license_status_icon">许可证状态指示器</string>
+    <string name="status_initializing">初始化中</string>
+    <string name="status_valid">有效</string>
+    <string name="status_invalid">无效</string>
+    <string name="status_expired">已过期</string>
+    <string name="status_checking">检查中</string>
+    <string name="initializing_keyauth">正在初始化 KeyAuth 应用程序...</string>
+    <string name="license_expiry_label">到期时间:</string>
+    <string name="license_expiry_placeholder">--/--/----</string>
+    <string name="license_duration_label">剩余时间:</string>
+    <string name="license_duration_placeholder">-- 天</string>
+    <string name="expiry_icon">许可证到期指示器</string>
+    <string name="duration_icon">许可证持续时间指示器</string>
+
+    <!-- Messages -->
+    <string name="initializing">正在初始化应用程序...</string>
+    <string name="authenticating">正在验证...</string>
+    <string name="login_successful">登录成功！</string>
+    <string name="login_failed">登录失败</string>
+    <string name="network_error">网络错误。请检查您的连接。</string>
+    <string name="invalid_license">无效的许可证密钥</string>
+    <string name="license_expired">许可证密钥已过期</string>
+    <string name="license_key_required">请输入许可证密钥</string>
+
+    <!-- Main Activity -->
+    <string name="welcome_message">欢迎使用 KeyAuth 加载器！</string>
+    <string name="logout">退出登录</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">首页</string>
+    <string name="nav_update">更新</string>
+    <string name="nav_settings">设置</string>
+
+    <!-- Home Fragment -->
+    <string name="select_game">选择PUBG Mobile版本</string>
+    <string name="user_info_title">用户信息</string>
+    <string name="loading_username">用户名: 加载中...</string>
+    <string name="loading_subscription">订阅状态: 加载中...</string>
+    <string name="app_info_title">应用信息</string>
+    <string name="app_version_info">版本 1.0.6</string>
+    <string name="app_description">KeyAuth 加载器与 OTA 更新系统</string>
+
+    <!-- Update Fragment -->
+    <string name="app_updates">应用更新</string>
+    <string name="current_version">当前版本</string>
+    <string name="last_update_check">上次检查: 从未</string>
+    <string name="checking_updates">正在检查更新...</string>
+    <string name="check_for_updates">检查更新</string>
+    <string name="app_up_to_date">应用已是最新版本</string>
+    <string name="app_up_to_date_description">您正在运行最新版本的 KeyAuth 加载器</string>
+    <string name="available_versions">可用版本</string>
+    <string name="no_variants_available">暂无可用版本</string>
+    <string name="no_variants_description">当前没有可下载的版本，请稍后再试。</string>
+    <string name="loading_failed">加载失败</string>
+    <string name="loading_failed_description">无法加载版本信息</string>
+    <string name="retry">重试</string>
+
+    <!-- Settings Fragment -->
+    <string name="settings_title">设置</string>
+    <string name="user_profile">用户资料</string>
+    <string name="language_settings">语言设置</string>
+    <string name="language_description">选择您的首选语言</string>
+    <string name="switch_language">切换语言</string>
+    <string name="current_language">当前语言: 中文</string>
+    <string name="app_settings">应用设置</string>
+    <string name="account_settings">账户设置</string>
+    <string name="logout_description">退出您的账户</string>
+
+    <!-- Error Messages -->
+    <string name="error_occurred">发生错误</string>
+    <string name="try_again">重试</string>
+    <string name="connection_timeout">连接超时</string>
+
+    <!-- OTA Update System -->
+    <string name="variant_file_sizes">APK: %1$s • OBB: %2$s</string>
+    <string name="download_variant">下载 %1$s</string>
+    <string name="unknown_size">未知</string>
+
+    <!-- PUBG Mobile Variants - 主要支持版本 -->
+    <string name="pubg_mobile_global">PUBG Mobile 国际版</string>
+    <string name="pubg_mobile_korea">PUBG Mobile 韩国版</string>
+    <string name="pubg_mobile_taiwan">PUBG Mobile 台湾版</string>
+    <string name="pubg_mobile_vietnam">PUBG Mobile 越南版</string>
+    <string name="pubg_mobile_india">BGMI (印度战场)</string>
+
+    <string name="pubg_global_description">国际版本，支持全球用户，包含最新功能</string>
+    <string name="pubg_korea_description">韩国版本，针对韩国地区优化，包含本地功能</string>
+    <string name="pubg_taiwan_description">台湾版本，支持繁体中文和地区内容</string>
+    <string name="pubg_vietnam_description">越南版本，包含本地优化和地区功能</string>
+    <string name="pubg_india_description">印度战场 - 专为印度玩家打造的独家版本</string>
+
+    <!-- Download/Update Actions -->
+    <string name="download">下载</string>
+    <string name="update">更新</string>
+    <string name="install">安装</string>
+    <string name="downloading">下载中</string>
+    <string name="updating">更新中</string>
+    <string name="installing">安装中</string>
+
+    <!-- Status Badges -->
+    <string name="new_variant">新版本</string>
+    <string name="popular_variant">热门</string>
+    <string name="recommended_variant">推荐</string>
+
+    <!-- File Size and Progress -->
+    <string name="file_size_unknown">大小：未知</string>
+    <string name="download_progress">%1$d%% • %2$s/秒 • 剩余 %3$s</string>
+    <string name="download_speed">%1$s/秒</string>
+    <string name="eta_remaining">剩余 %1$s</string>
+
+    <!-- Version Status -->
+    <string name="version_latest">最新版本</string>
+    <string name="version_outdated">有更新可用</string>
+    <string name="version_not_installed">未安装</string>
+</resources>

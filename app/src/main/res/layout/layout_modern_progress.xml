@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/card_3d_elevated"
+    android:visibility="gone">
+
+    <!-- Progress Info Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <!-- Download Icon -->
+        <ImageView
+            android:id="@+id/ivProgressIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_download"
+            android:contentDescription="@string/downloading"
+            app:tint="@color/accent_color" />
+
+        <!-- Progress Text Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvProgressTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Downloading PUBG Mobile Global"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:id="@+id/tvProgressDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45% • 2.3 MB/s • 2m 15s remaining"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+        <!-- Percentage Circle -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circularProgress"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            app:indicatorColor="@color/accent_color"
+            app:trackColor="@color/dark_surface_variant"
+            app:indicatorSize="32dp"
+            app:trackThickness="3dp"
+            app:indicatorInset="0dp"
+            style="@style/Widget.Material3.CircularProgressIndicator" />
+
+    </LinearLayout>
+
+    <!-- Modern Progress Bar -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginBottom="4dp">
+
+        <!-- Background Track -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/progress_track_background" />
+
+        <!-- Progress Indicator -->
+        <View
+            android:id="@+id/progressIndicator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/progress_indicator_gradient" />
+
+    </FrameLayout>
+
+    <!-- File Size Info -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvDownloadedSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="450 MB / 1.2 GB"
+            android:textColor="@color/text_hint"
+            android:textSize="11sp"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/tvProgressPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="45%"
+            android:textColor="@color/accent_color"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="end" />
+
+    </LinearLayout>
+
+</LinearLayout>

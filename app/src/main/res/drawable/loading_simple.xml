@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Simple outer circle -->
+    <path
+        android:pathData="M24,6 C35.05,6 44,14.95 44,26 C44,37.05 35.05,46 24,46 C12.95,46 4,37.05 4,26 C4,14.95 12.95,6 24,6 Z"
+        android:strokeColor="@color/md3_primary"
+        android:strokeWidth="3"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Inner circle -->
+    <path
+        android:pathData="M24,12 C31.73,12 38,18.27 38,26 C38,33.73 31.73,40 24,40 C16.27,40 10,33.73 10,26 C10,18.27 16.27,12 24,12 Z"
+        android:strokeColor="@color/md3_secondary"
+        android:strokeWidth="2"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Center dot -->
+    <path
+        android:pathData="M24,22 C25.1,22 26,22.9 26,24 C26,25.1 25.1,26 24,26 C22.9,26 22,25.1 22,24 C22,22.9 22.9,22 24,22 Z"
+        android:fillColor="@color/md3_tertiary" />
+
+</vector>

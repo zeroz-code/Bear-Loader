@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- White background -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M0,0h120v120h-120z" />
+
+    <!-- Golden border circle -->
+    <path
+        android:fillColor="#FFD4AF37"
+        android:pathData="M60,10C32.4,10 10,32.4 10,60C10,87.6 32.4,110 60,110C87.6,110 110,87.6 110,60C110,32.4 87.6,10 60,10Z" />
+
+    <!-- Inner white circle -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M60,15C35.1,15 15,35.1 15,60C15,84.9 35.1,105 60,105C84.9,105 105,84.9 105,60C105,35.1 84.9,15 60,15Z" />
+
+    <!-- Bear body -->
+    <path
+        android:fillColor="#CD853F"
+        android:pathData="M60,45C50,45 42,53 42,63L42,85C42,90 46,94 51,94L69,94C74,94 78,90 78,85L78,63C78,53 70,45 60,45Z" />
+
+    <!-- Bear head -->
+    <path
+        android:fillColor="#CD853F"
+        android:pathData="M60,25C48,25 38,35 38,47C38,59 48,69 60,69C72,69 82,59 82,47C82,35 72,25 60,25Z" />
+
+    <!-- Bear ears -->
+    <path
+        android:fillColor="#CD853F"
+        android:pathData="M45,30C48.31,30 51,32.69 51,36C51,39.31 48.31,42 45,42C41.69,42 39,39.31 39,36C39,32.69 41.69,30 45,30Z" />
+    <path
+        android:fillColor="#CD853F"
+        android:pathData="M75,30C78.31,30 81,32.69 81,36C81,39.31 78.31,42 75,42C71.69,42 69,39.31 69,36C69,32.69 71.69,30 75,30Z" />
+
+    <!-- Inner ears -->
+    <path
+        android:fillColor="#DEB887"
+        android:pathData="M45,33C46.66,33 48,34.34 48,36C48,37.66 46.66,39 45,39C43.34,39 42,37.66 42,36C42,34.34 43.34,33 45,33Z" />
+    <path
+        android:fillColor="#DEB887"
+        android:pathData="M75,33C76.66,33 78,34.34 78,36C78,37.66 76.66,39 75,39C73.34,39 72,37.66 72,36C72,34.34 73.34,33 75,33Z" />
+
+    <!-- Angry eyebrows -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M48,40L56,44L56,42L48,38Z" />
+    <path
+        android:fillColor="#000000"
+        android:pathData="M72,40L64,44L64,42L72,38Z" />
+
+    <!-- Eyes -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M52,45C53.66,45 55,46.34 55,48C55,49.66 53.66,51 52,51C50.34,51 49,49.66 49,48C49,46.34 50.34,45 52,45Z" />
+    <path
+        android:fillColor="#000000"
+        android:pathData="M68,45C69.66,45 71,46.34 71,48C71,49.66 69.66,51 68,51C66.34,51 65,49.66 65,48C65,46.34 66.34,45 68,45Z" />
+
+    <!-- Nose -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M60,52C61.1,52 62,52.9 62,54C62,55.1 61.1,56 60,56C58.9,56 58,55.1 58,54C58,52.9 58.9,52 60,52Z" />
+
+    <!-- Mouth (angry expression) -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#000000"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M55,58 Q60,62 65,58" />
+
+    <!-- Arms -->
+    <path
+        android:fillColor="#CD853F"
+        android:pathData="M35,55C37.21,55 39,56.79 39,59C39,61.21 37.21,63 35,63C32.79,63 31,61.21 31,59C31,56.79 32.79,55 35,55Z" />
+    <path
+        android:fillColor="#CD853F"
+        android:pathData="M85,55C87.21,55 89,56.79 89,59C89,61.21 87.21,63 85,63C82.79,63 81,61.21 81,59C81,56.79 82.79,55 85,55Z" />
+
+    <!-- Legs -->
+    <path
+        android:fillColor="#CD853F"
+        android:pathData="M50,85C52.21,85 54,86.79 54,89C54,91.21 52.21,93 50,93C47.79,93 46,91.21 46,89C46,86.79 47.79,85 50,85Z" />
+    <path
+        android:fillColor="#CD853F"
+        android:pathData="M70,85C72.21,85 74,86.79 74,89C74,91.21 72.21,93 70,93C67.79,93 66,91.21 66,89C66,86.79 67.79,85 70,85Z" />
+
+    <!-- Pink "BEAR" text background (large) -->
+    <path
+        android:fillColor="#FFFF69B4"
+        android:pathData="M20,20 Q15,20 15,25 L15,40 Q15,45 20,45 L35,45 Q40,45 40,40 L40,25 Q40,20 35,20 Z" />
+    <path
+        android:fillColor="#FFFF69B4"
+        android:pathData="M45,20 Q40,20 40,25 L40,40 Q40,45 45,45 L60,45 Q65,45 65,40 L65,25 Q65,20 60,20 Z" />
+    <path
+        android:fillColor="#FFFF69B4"
+        android:pathData="M70,20 Q65,20 65,25 L65,40 Q65,45 70,45 L85,45 Q90,45 90,40 L90,25 Q90,20 85,20 Z" />
+    <path
+        android:fillColor="#FFFF69B4"
+        android:pathData="M95,20 Q90,20 90,25 L90,40 Q90,45 95,45 L105,45 Q110,45 110,40 L110,25 Q110,20 105,20 Z" />
+
+    <!-- "BEAR" text on shirt -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,70 L54,70 L54,72 L52,72 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M56,70 L58,70 L58,72 L56,72 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,70 L62,70 L62,72 L60,72 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M64,70 L66,70 L66,72 L64,72 Z" />
+
+</vector>

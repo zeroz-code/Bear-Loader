@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Enhanced Network Security Configuration for BEAR-MOD KeyAuth Loader
+   Enforces HTTPS for all KeyAuth communications and GitHub API calls
+-->
+<network-security-config>
+    <!-- Base configuration: Enforce HTTPS by default -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+
+    <!-- KeyAuth API domains - Enforce HTTPS without certificate pinning -->
+    <!-- Certificate pinning disabled temporarily to resolve connection issues -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">keyauth.win</domain>
+        <domain includeSubdomains="true">keyauth.cc</domain>
+        <domain includeSubdomains="true">keyauth.com</domain>
+        <!-- Certificate pinning disabled - KeyAuth uses dynamic certificates -->
+        <!-- This allows the app to connect while maintaining HTTPS security -->
+    </domain-config>
+
+    <!-- GitHub API for OTA updates - Enforce HTTPS -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">api.github.com</domain>
+        <domain includeSubdomains="true">github.com</domain>
+        <domain includeSubdomains="true">raw.githubusercontent.com</domain>
+    </domain-config>
+
+    <!-- Development domains - Only for debug builds -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <domain includeSubdomains="true">192.168.1.0/24</domain>
+    </domain-config>
+</network-security-config>

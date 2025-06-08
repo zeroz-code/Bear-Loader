@@ -1,0 +1,71 @@
+{
+  "version": "3.8.0",
+  "build": "1001",
+  "variants": {
+    "GL": {
+      "size": "1.08 GB",
+      "apk": {
+        "name": "pubg_mobile_global_3.8.0.apk",
+        "url": "https://example.com/downloads/pubg_global_3.8.0.apk",
+        "sha256": "a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456"
+      },
+      "obb": {
+        "name": "main.2019031901.com.tencent.ig.obb",
+        "url": "https://example.com/downloads/pubg_global_3.8.0.obb",
+        "sha256": "b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef1234567"
+      }
+    },
+    "KR": {
+      "size": "1.12 GB",
+      "apk": {
+        "name": "pubg_mobile_kr_3.8.0.apk",
+        "url": "https://example.com/downloads/pubg_kr_3.8.0.apk",
+        "sha256": "c3d4e5f6789012345678901234567890abcdef1234567890abcdef12345678"
+      },
+      "obb": {
+        "name": "main.2019031901.com.pubg.krmobile.obb",
+        "url": "https://example.com/downloads/pubg_kr_3.8.0.obb",
+        "sha256": "d4e5f6789012345678901234567890abcdef1234567890abcdef123456789"
+      }
+    },
+    "TW": {
+      "size": "1.08 GB",
+      "apk": {
+        "name": "pubg_mobile_tw_3.8.0.apk",
+        "url": "https://example.com/downloads/pubg_tw_3.8.0.apk",
+        "sha256": "e5f6789012345678901234567890abcdef1234567890abcdef1234567890"
+      },
+      "obb": {
+        "name": "main.2019031901.com.rekoo.pubgm.obb",
+        "url": "https://example.com/downloads/pubg_tw_3.8.0.obb",
+        "sha256": "f6789012345678901234567890abcdef1234567890abcdef12345678901"
+      }
+    },
+    "VNG": {
+      "size": "1.13 GB",
+      "apk": {
+        "name": "pubg_mobile_vng_3.8.0.apk",
+        "url": "https://example.com/downloads/pubg_vng_3.8.0.apk",
+        "sha256": "6789012345678901234567890abcdef1234567890abcdef123456789012"
+      },
+      "obb": {
+        "name": "main.2019031901.com.vng.pubgmobile.obb",
+        "url": "https://example.com/downloads/pubg_vng_3.8.0.obb",
+        "sha256": "789012345678901234567890abcdef1234567890abcdef1234567890123"
+      }
+    },
+    "BGMI": {
+      "size": "1.05 GB",
+      "apk": {
+        "name": "bgmi_3.8.0.apk",
+        "url": "https://example.com/downloads/bgmi_3.8.0.apk",
+        "sha256": "89012345678901234567890abcdef1234567890abcdef12345678901234"
+      },
+      "obb": {
+        "name": "main.2019031901.com.pubg.imobile.obb",
+        "url": "https://example.com/downloads/bgmi_3.8.0.obb",
+        "sha256": "9012345678901234567890abcdef1234567890abcdef123456789012345"
+      }
+    }
+  }
+}

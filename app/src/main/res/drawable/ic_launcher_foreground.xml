@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Pink "BEAR" Text Background -->
+    <path
+        android:fillColor="#FFFF69B4"
+        android:pathData="M20,25 Q18,25 18,27 L18,35 Q18,37 20,37 L30,37 Q32,37 32,35 L32,27 Q32,25 30,25 Z" />
+    <path
+        android:fillColor="#FFFF69B4"
+        android:pathData="M35,25 Q33,25 33,27 L33,35 Q33,37 35,37 L45,37 Q47,37 47,35 L47,27 Q47,25 45,25 Z" />
+    <path
+        android:fillColor="#FFFF69B4"
+        android:pathData="M50,25 Q48,25 48,27 L48,35 Q48,37 50,37 L60,37 Q62,37 62,35 L62,27 Q62,25 60,25 Z" />
+    <path
+        android:fillColor="#FFFF69B4"
+        android:pathData="M65,25 Q63,25 63,27 L63,35 Q63,37 65,37 L75,37 Q77,37 77,35 L77,27 Q77,25 75,25 Z" />
+
+    <!-- Bear Head (Brown) -->
+    <path
+        android:fillColor="#FFCD853F"
+        android:pathData="M54,40 A12,12 0 1,1 54,64 A12,12 0 1,1 54,40 Z" />
+
+    <!-- Bear Ears -->
+    <path
+        android:fillColor="#FFCD853F"
+        android:pathData="M46,42 A4,4 0 1,1 46,50 A4,4 0 1,1 46,42 Z" />
+    <path
+        android:fillColor="#FFCD853F"
+        android:pathData="M62,42 A4,4 0 1,1 62,50 A4,4 0 1,1 62,42 Z" />
+
+    <!-- Bear Inner Ears -->
+    <path
+        android:fillColor="#FFDEB887"
+        android:pathData="M46,44 A2,2 0 1,1 46,48 A2,2 0 1,1 46,44 Z" />
+    <path
+        android:fillColor="#FFDEB887"
+        android:pathData="M62,44 A2,2 0 1,1 62,48 A2,2 0 1,1 62,44 Z" />
+
+    <!-- Bear Eyes (Angry) -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M49,48 A2,2 0 1,1 49,52 A2,2 0 1,1 49,48 Z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M59,48 A2,2 0 1,1 59,52 A2,2 0 1,1 59,48 Z" />
+
+    <!-- Bear Snout -->
+    <path
+        android:fillColor="#FFDEB887"
+        android:pathData="M54,54 A4,3 0 1,1 54,60 A4,3 0 1,1 54,54 Z" />
+
+    <!-- Bear Nose -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M54,55 A1,1 0 1,1 54,57 A1,1 0 1,1 54,55 Z" />
+
+    <!-- Bear Body -->
+    <path
+        android:fillColor="#FFCD853F"
+        android:pathData="M54,65 A8,10 0 1,1 54,85 A8,10 0 1,1 54,65 Z" />
+
+    <!-- Bear Arms -->
+    <path
+        android:fillColor="#FFCD853F"
+        android:pathData="M42,68 A3,6 0 1,1 42,80 A3,6 0 1,1 42,68 Z" />
+    <path
+        android:fillColor="#FFCD853F"
+        android:pathData="M66,68 A3,6 0 1,1 66,80 A3,6 0 1,1 66,68 Z" />
+
+    <!-- Bear Legs -->
+    <path
+        android:fillColor="#FFCD853F"
+        android:pathData="M49,82 A3,6 0 1,1 49,94 A3,6 0 1,1 49,82 Z" />
+    <path
+        android:fillColor="#FFCD853F"
+        android:pathData="M59,82 A3,6 0 1,1 59,94 A3,6 0 1,1 59,82 Z" />
+
+    <!-- "BEAR" Text on Shirt -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,72 L52,72 L52,74 L50,74 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M53,72 L55,72 L55,74 L53,74 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M56,72 L58,72 L58,74 L56,74 Z" />
+
+</vector>

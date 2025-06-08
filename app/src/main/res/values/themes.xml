@@ -1,0 +1,81 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Material Design Base Theme -->
+    <style name="Theme.KeyAuthLoader" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Material Design 3 Primary Colors -->
+        <item name="colorPrimary">@color/md3_primary</item>
+        <item name="colorPrimaryVariant">@color/md3_primary_variant</item>
+        <item name="colorPrimaryContainer">@color/md3_primary_container</item>
+        <item name="colorOnPrimary">@color/md3_on_primary</item>
+        <item name="colorOnPrimaryContainer">@color/md3_on_primary_container</item>
+
+        <!-- Material Design 3 Secondary Colors -->
+        <item name="colorSecondary">@color/md3_secondary</item>
+        <item name="colorSecondaryVariant">@color/md3_secondary_variant</item>
+        <item name="colorSecondaryContainer">@color/md3_secondary_container</item>
+        <item name="colorOnSecondary">@color/md3_on_secondary</item>
+        <item name="colorOnSecondaryContainer">@color/md3_on_secondary_container</item>
+
+        <!-- Material Design 3 Tertiary Colors -->
+        <item name="colorTertiary">@color/md3_tertiary</item>
+        <item name="colorTertiaryContainer">@color/md3_tertiary_container</item>
+        <item name="colorOnTertiary">@color/md3_on_tertiary</item>
+        <item name="colorOnTertiaryContainer">@color/md3_on_tertiary_container</item>
+
+        <!-- Background and Surface Colors -->
+        <item name="android:colorBackground">@color/md3_background</item>
+        <item name="colorSurface">@color/md3_surface</item>
+        <item name="colorSurfaceVariant">@color/md3_surface_variant</item>
+        <item name="colorSurfaceContainer">@color/md3_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/md3_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/md3_surface_container_highest</item>
+        <item name="colorOnSurface">@color/md3_on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/md3_on_surface_variant</item>
+        <item name="colorOnBackground">@color/md3_on_background</item>
+
+        <!-- Status and Navigation Bar -->
+        <item name="android:statusBarColor">@color/md3_background</item>
+        <item name="android:navigationBarColor">@color/md3_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <!-- windowLightNavigationBar requires API 27+ - moved to values-v27 -->
+
+        <!-- Text Colors -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+
+        <!-- Window Animations -->
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+
+        <!-- Enable edge-to-edge -->
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+
+    <!-- No Action Bar theme for login with modern styling -->
+    <style name="Theme.KeyAuthLoader.NoActionBar" parent="Theme.KeyAuthLoader">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+
+    <!-- Window Animation Style -->
+    <style name="WindowAnimationTransition" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_left</item>
+    </style>
+
+    <!-- Modern Splash Screen Theme -->
+    <style name="Theme.KeyAuthLoader.Splash" parent="Theme.KeyAuthLoader.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_gradient</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

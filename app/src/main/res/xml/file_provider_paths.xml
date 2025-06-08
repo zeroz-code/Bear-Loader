@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- External files directory for OTA downloads -->
+    <external-files-path 
+        name="ota_downloads" 
+        path="Downloads/ota_updates/" />
+    
+    <!-- External storage for OBB files -->
+    <external-path 
+        name="obb_files" 
+        path="Android/obb/" />
+    
+    <!-- Cache directory for temporary files -->
+    <cache-path 
+        name="cache" 
+        path="." />
+</paths>

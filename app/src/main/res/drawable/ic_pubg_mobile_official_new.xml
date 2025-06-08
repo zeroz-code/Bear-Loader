@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Official PUBG Mobile Icon - Authentic Google Play Store Design -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- Main Background - Official PUBG Mobile orange/red gradient -->
+    <path
+        android:fillColor="#FF4500"
+        android:pathData="M32,0C14.3,0 0,14.3 0,32s14.3,32 32,32s32,-14.3 32,-32S49.7,0 32,0z"/>
+
+    <!-- Inner gradient layer -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M32,2C15.4,2 2,15.4 2,32s13.4,30 30,30s30,-13.4 30,-30S48.6,2 32,2z"/>
+
+    <!-- Dark inner circle for depth -->
+    <path
+        android:fillColor="#1A1A1A"
+        android:pathData="M32,6C18.7,6 8,16.7 8,30s10.7,24 24,24s24,-10.7 24,-24S45.3,6 32,6z"/>
+
+    <!-- Central game area background -->
+    <path
+        android:fillColor="#2A2A2A"
+        android:pathData="M32,8C19.8,8 10,17.8 10,30s9.8,22 22,22s22,-9.8 22,-22S44.2,8 32,8z"/>
+
+    <!-- PUBG Mobile Logo - Stylized helmet/mask design -->
+    <!-- Main helmet shape -->
+    <path
+        android:fillColor="#FF4500"
+        android:pathData="M32,12C24.3,12 18,18.3 18,26v12c0,7.7 6.3,14 14,14s14,-6.3 14,-14V26C46,18.3 39.7,12 32,12z"/>
+
+    <!-- Helmet visor/face area -->
+    <path
+        android:fillColor="#1A1A1A"
+        android:pathData="M32,16C26.5,16 22,20.5 22,26v8c0,5.5 4.5,10 10,10s10,-4.5 10,-10v-8C42,20.5 37.5,16 32,16z"/>
+
+    <!-- Eye area/visor -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M26,24h12c2.2,0 4,1.8 4,4v4c0,2.2 -1.8,4 -4,4H26c-2.2,0 -4,-1.8 -4,-4v-4C22,25.8 23.8,24 26,24z"/>
+
+    <!-- Inner visor detail -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M28,26h8c1.1,0 2,0.9 2,2v4c0,1.1 -0.9,2 -2,2h-8c-1.1,0 -2,-0.9 -2,-2v-4C26,26.9 26.9,26 28,26z"/>
+
+    <!-- Helmet details/vents -->
+    <path
+        android:fillColor="#FF8A5B"
+        android:pathData="M20,22h2v4h-2z M42,22h2v4h-2z M20,30h2v4h-2z M42,30h2v4h-2z"/>
+
+    <!-- Bottom text area -->
+    <path
+        android:fillColor="#FF4500"
+        android:pathData="M16,44h32v8c0,2.2 -1.8,4 -4,4H20c-2.2,0 -4,-1.8 -4,-4V44z"/>
+
+    <!-- MOBILE text styling -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M18,46h2v6h-2z M22,46h2v6h-2z M26,46h6v2h-6z M26,50h6v2h-6z M34,46h2v6h-2z M38,46h6v2h-6z M38,50h6v2h-6z M46,46h2v6h-2z"/>
+
+    <!-- Highlight effects for 3D appearance -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,2C20.4,2 11,11.4 11,23C11,12.5 20.4,3 32,3C43.6,3 53,12.5 53,23C53,11.4 43.6,2 32,2z"
+        android:fillAlpha="0.3"/>
+
+    <!-- Shadow effects -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M32,61C43.6,61 53,51.6 53,40C53,50.5 43.6,60 32,60C20.4,60 11,50.5 11,40C11,51.6 20.4,61 32,61z"
+        android:fillAlpha="0.2"/>
+
+</vector>
