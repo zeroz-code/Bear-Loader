@@ -167,7 +167,7 @@ class UpdateAvailableActivity : AppCompatActivity() {
     private fun showUpdateAvailableState(state: OTAUpdateState.UpdateAvailable) {
         binding.apply {
             tvTitle.text = "Update Available"
-            tvDescription.text = "A new version of BearMod is available for download. This update includes new features, improvements, and bug fixes."
+            tvDescription.text = "A new version of Bear-Loader is available for download. This update includes new features, improvements, and bug fixes."
             tvCurrentVersion.text = viewModel.getCurrentVersionInfo()
             tvAvailableVersion.text = viewModel.getAvailableVersionInfo()
             tvAvailableVersion.visibility = View.VISIBLE
@@ -180,7 +180,7 @@ class UpdateAvailableActivity : AppCompatActivity() {
     private fun showNoUpdateState() {
         binding.apply {
             tvTitle.text = "No Updates Available"
-            tvDescription.text = "You are already using the latest version of BearMod."
+            tvDescription.text = "You are already using the latest version of Bear-Loader."
             tvCurrentVersion.text = viewModel.getCurrentVersionInfo()
             tvAvailableVersion.visibility = View.GONE
             btnUpdate.visibility = View.GONE

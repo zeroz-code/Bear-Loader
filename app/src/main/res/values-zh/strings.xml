@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">熊猫模组</string>
+    <string name="app_name">Bear-Loader</string>
 
     <!-- Login Screen -->
-    <string name="app_title">熊猫模组</string>
+    <string name="app_title">Bear-Loader</string>
     <string name="license_key_hint">请输入您的许可证密钥</string>
     <string name="remember_key">记住密钥</string>
     <string name="automatic_login">自动登录</string>
@@ -12,7 +12,7 @@
     <string name="paste_license">粘贴许可证密钥</string>
 
     <!-- Bear Logo -->
-    <string name="bear_logo_description">熊猫模组应用程序标志</string>
+    <string name="bear_logo_description">应用程序标志</string>
 
     <!-- License Status Display -->
     <string name="license_status_title">许可证状态</string>

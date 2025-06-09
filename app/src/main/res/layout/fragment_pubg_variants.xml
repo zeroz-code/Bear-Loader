@@ -32,14 +32,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BEAR-MOD"
-                android:textColor="@color/accent_orange"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-medium" />
+            <!-- BEAR-MOD text removed -->
 
             <TextView
                 android:layout_width="wrap_content"

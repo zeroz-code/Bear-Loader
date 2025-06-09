@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">BEAR-MOD</string>
+    <string name="app_name">Bear-Loader</string>
 
     <!-- Login Screen -->
-    <string name="app_title">BEAR-MOD</string>
+    <string name="app_title">Bear-Loader</string>
     <string name="license_key_hint">Enter your license key</string>
     <string name="remember_key">Remember Key</string>
     <string name="automatic_login">Automatic login</string>
@@ -11,7 +11,7 @@
     <string name="paste_license">Paste license key</string>
 
     <!-- Bear Logo -->
-    <string name="bear_logo_description">Bear-Mod Application Logo</string>
+    <string name="bear_logo_description">Application Logo</string>
 
     <!-- License Status Display -->
     <string name="license_status_title">License Status</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-   Enhanced backup rules for BEAR-MOD KeyAuth Loader
+   Enhanced backup rules for Bear-Loader KeyAuth Loader
    Excludes sensitive authentication data while allowing app preferences
    See https://developer.android.com/guide/topics/data/autobackup
 -->

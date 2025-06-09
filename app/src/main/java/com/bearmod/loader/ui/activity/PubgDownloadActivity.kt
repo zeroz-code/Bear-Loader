@@ -58,9 +58,9 @@ class PubgDownloadActivity : AppCompatActivity() {
     private fun setupBearBranding() {
         // Set Bear Logo
         bearLogoImageView.setImageResource(R.drawable.bear_logo)
-        
-        // Set title with Bear branding
-        titleTextView.text = "BEAR-MOD\nPUBG Mobile Variants"
+
+        // Set title without Bear branding
+        titleTextView.text = "PUBG Mobile Variants"
     }
 
     private fun loadPubgVariants() {

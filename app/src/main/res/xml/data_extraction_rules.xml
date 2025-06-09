@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-   Enhanced data extraction rules for BEAR-MOD KeyAuth Loader
+   Enhanced data extraction rules for Bear-Loader KeyAuth Loader
    Provides secure cloud backup and device transfer policies
    See https://developer.android.com/about/versions/12/backup-restore#xml-changes
 -->
