@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Bear-Loader</string>
+    <string name="app_name"></string>
 
     <!-- Login Screen -->
-    <string name="app_title">Bear-Loader</string>
+    <string name="app_title"></string>
     <string name="license_key_hint">Enter your license key</string>
     <string name="remember_key">Remember Key</string>
     <string name="automatic_login">Automatic login</string>

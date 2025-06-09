@@ -71,7 +71,7 @@
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:lineSpacingExtra="4dp"
-                android:text="A new version of Bear-Loader is available for download. This update includes new features, improvements, and bug fixes."
+                android:text="A new version is available for download. This update includes new features, improvements, and bug fixes."
                 android:textColor="@color/text_secondary"
                 android:textSize="16sp" />
 

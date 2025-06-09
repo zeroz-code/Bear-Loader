@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Bear-Loader</string>
+    <string name="app_name"></string>
 
     <!-- Login Screen -->
-    <string name="app_title">Bear-Loader</string>
+    <string name="app_title"></string>
     <string name="license_key_hint">请输入您的许可证密钥</string>
     <string name="remember_key">记住密钥</string>
     <string name="automatic_login">自动登录</string>
