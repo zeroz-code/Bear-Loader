@@ -869,8 +869,8 @@ class KeyAuthRepository(
         if (!apiBaseUrl.contains("keyauth.win/api/1.3")) issues.add("API endpoint mismatch (expected: keyauth.win/api/1.3)")
 
         // Check custom hash
-        if (customHash != "4f9b15598f6e8bdf07ca39e9914cd3e9") {
-            issues.add("Custom hash mismatch (expected: 4f9b15598f6e8bdf07ca39e9914cd3e9)")
+        if (customHash != "60885a0cf06010794575da6896370413") {
+            issues.add("Custom hash mismatch (expected: 60885a0cf06010794575da6896370413)")
         }
 
         return if (issues.isEmpty()) {

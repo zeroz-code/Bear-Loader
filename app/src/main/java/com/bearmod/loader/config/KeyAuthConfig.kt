@@ -29,8 +29,9 @@ object KeyAuthConfig {
     /**
      * Custom KeyAuth hash for integrity checking
      * This hash is used for additional security validation
+     * Hash from KeyAuth dashboard: 0fcf16068e3c343f85d1abfb761c5609
      */
-    const val CUSTOM_HASH = "4f9b15598f6e8bdf07ca39e9914cd3e9"
+    const val CUSTOM_HASH = "0fcf16068e3c343f85d1abfb761c5609"
     
     /**
      * KeyAuth API base URL
@@ -57,7 +58,7 @@ object KeyAuthConfig {
      * JSON endpoint for version information
      * Should return version, build, and variants information
      */
-    const val OTA_VERSION_ENDPOINT = "https://api.github.com/repos/your-username/your-repo/releases/latest"
+    const val OTA_VERSION_ENDPOINT = "https://api.github.com/repos/kothar-1992/BearMod/releases/latest"
 
     /**
      * Current local version for comparison
