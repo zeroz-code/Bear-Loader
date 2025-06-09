@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.keyauth.loader"
+    namespace = "com.bearmod.loader"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.keyauth.loader"
+        applicationId = "com.bearmod.loader"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

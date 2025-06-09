@@ -137,7 +137,7 @@ Ensure your KeyAuth configuration matches:
 
 ```kotlin
 object KeyAuthConfig {
-    const val APP_NAME = "com.keyauth.loader"
+    const val APP_NAME = "com.bearmod.loader"
     const val OWNER_ID = "yLoA9zcOEF"
     const val APP_VERSION = "1.3"
     const val API_BASE_URL = "https://keyauth.win/api/1.3/"

@@ -103,11 +103,11 @@ Fixed the "Authentication failed: Application not initialized. Please restart th
 
 ## 📋 **Files Modified**
 
-1. `app/src/main/java/com/keyauth/loader/ui/LoginActivity.kt`
-2. `app/src/main/java/com/keyauth/loader/ui/login/LoginViewModel.kt`
-3. `app/src/main/java/com/keyauth/loader/data/repository/KeyAuthRepository.kt`
-4. `app/src/main/java/com/keyauth/loader/KeyAuthLoaderApplication.kt`
-5. `app/src/test/java/com/keyauth/loader/KeyAuthRepositoryTest.kt`
+1. `app/src/main/java/com/bearmod/loader/ui/LoginActivity.kt`
+2. `app/src/main/java/com/bearmod/loader/ui/login/LoginViewModel.kt`
+3. `app/src/main/java/com/bearmod/loader/data/repository/KeyAuthRepository.kt`
+4. `app/src/main/java/com/bearmod/loader/KeyAuthLoaderApplication.kt`
+5. `app/src/test/java/com/bearmod/loader/KeyAuthRepositoryTest.kt`
 
 ## ✨ **Result**
 The KeyAuth Loader app now provides a reliable, user-friendly authentication experience without requiring app restarts. The Chinese student user base will enjoy a smooth, consistent login process with proper Material Design 3 feedback patterns.

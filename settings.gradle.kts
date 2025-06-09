@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "KeyAuth-Loader"
+rootProject.name = "Bear-Loader"
 include(":app")

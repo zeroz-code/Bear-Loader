@@ -35,7 +35,7 @@ Before building the app, you need to configure your KeyAuth application details:
 
 ### 2. Update Configuration
 
-Edit `app/src/main/java/com/keyauth/loader/config/KeyAuthConfig.kt`:
+Edit `app/src/main/java/com/bearmod/loader/config/KeyAuthConfig.kt`:
 
 ```kotlin
 object KeyAuthConfig {

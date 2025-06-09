@@ -28,7 +28,7 @@ The license key being tested may not be valid for your KeyAuth application.
 
 ### Step 2: Update Configuration
 
-Edit `app/src/main/java/com/keyauth/loader/config/KeyAuthConfig.kt`:
+Edit `app/src/main/java/com/bearmod/loader/config/KeyAuthConfig.kt`:
 
 ```kotlin
 object KeyAuthConfig {

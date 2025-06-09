@@ -167,7 +167,7 @@ The fix maintains the previously implemented KeyAuth C++ library v1.3 pattern:
 
 The implementation uses the correct KeyAuth configuration with custom hash:
 - **Owner ID**: `yLoA9zcOEF`
-- **App Name**: `com.keyauth.loader`
+- **App Name**: `com.bearmod.loader`
 - **Version**: `1.3`
 - **API Endpoint**: `https://keyauth.win/api/1.3/`
 - **Custom Hash**: `4f9b15598f6e8bdf07ca39e9914cd3e9`

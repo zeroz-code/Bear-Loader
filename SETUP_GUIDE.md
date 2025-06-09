@@ -14,7 +14,7 @@
 
 ### Step 2: Configure the App
 
-Open `app/src/main/java/com/keyauth/loader/config/KeyAuthConfig.kt` and replace:
+Open `app/src/main/java/com/bearmod/loader/config/KeyAuthConfig.kt` and replace:
 
 ```kotlin
 object KeyAuthConfig {

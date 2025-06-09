@@ -296,7 +296,7 @@
         errorLine1="                    data = Uri.parse(&quot;package:${context.packageName}&quot;)"
         errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/keyauth/loader/utils/PermissionManager.kt"
+            file="src/main/java/com/bearmod/loader/utils/PermissionManager.kt"
             line="83"
             column="28"/>
     </issue>
@@ -307,7 +307,7 @@
         errorLine1="                migrationPrefs.edit()"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/com/keyauth/loader/utils/PreferencesMigration.kt"
+            file="src/main/java/com/bearmod/loader/utils/PreferencesMigration.kt"
             line="38"
             column="17"/>
     </issue>

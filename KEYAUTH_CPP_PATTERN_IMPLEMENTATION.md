@@ -187,7 +187,7 @@ fun authenticateWithLicense(licenseKey: String) {
 
 The implementation uses the correct KeyAuth configuration:
 - **Owner ID**: `yLoA9zcOEF`
-- **App Name**: `com.keyauth.loader`
+- **App Name**: `com.bearmod.loader`
 - **Version**: `1.3`
 - **API Endpoint**: `https://keyauth.win/api/1.3/`
 

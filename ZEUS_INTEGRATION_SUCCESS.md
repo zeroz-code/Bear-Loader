@@ -56,7 +56,7 @@ app/src/main/res/animator/
 
 ### **✅ Updated Files:**
 ```
-app/src/main/java/com/keyauth/loader/ui/
+app/src/main/java/com/bearmod/loader/ui/
 └── MainActivity.kt                       ✅ Uses ZeusPubgFragment
 
 app/src/main/assets/

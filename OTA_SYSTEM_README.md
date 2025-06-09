@@ -34,7 +34,7 @@ This document provides a comprehensive overview of the Over-The-Air (OTA) update
 ## 📁 Project Structure
 
 ```
-app/src/main/java/com/keyauth/loader/
+app/src/main/java/com/bearmod/loader/
 ├── config/
 │   └── KeyAuthConfig.kt              # Updated with OTA configuration
 ├── data/
