@@ -1,0 +1,20 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# OTA Update System Guide
+
+The Bear-Loader app supports Over-the-Air (OTA) updates for game variants and resources.
+
+- [OTARepository.kt](mdc:app/src/main/java/com/bearmod/loader/data/repository/OTARepository.kt): Handles update checks, download logic, and update state.
+- [OTAModels.kt](mdc:app/src/main/java/com/bearmod/loader/data/model/OTAModels.kt): Defines data models for OTA updates.
+- UI for OTA is in [DownloadActivity.kt](mdc:app/src/main/java/com/bearmod/loader/ui/ota/DownloadActivity.kt), [UpdateAvailableActivity.kt](mdc:app/src/main/java/com/bearmod/loader/ui/ota/UpdateAvailableActivity.kt), and related fragments/adapters.
+
+## OTA Flow
+- The app checks for updates using OTARepository.
+- Available updates are shown in the UI.
+- Downloads and installations are managed by the repository and activities.
+
+Refer to these files for implementing or modifying OTA update logic.
+

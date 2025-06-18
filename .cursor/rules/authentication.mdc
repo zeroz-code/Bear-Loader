@@ -1,0 +1,21 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Authentication Logic Guide
+
+Authentication in Bear-Loader is managed primarily through the following components:
+
+- [KeyAuthRepository.kt](mdc:app/src/main/java/com/bearmod/loader/data/repository/KeyAuthRepository.kt): Handles API calls, session management, and authentication state.
+- [AuthViewModel.java](mdc:app/src/main/java/com/bearmod/loader/viewmodel/AuthViewModel.java): Exposes authentication state to the UI and coordinates with the repository.
+- [SecurePreferences.kt](mdc:app/src/main/java/com/bearmod/loader/utils/SecurePreferences.kt): Stores tokens and sensitive data securely.
+- [SessionManager.kt/java](mdc:app/src/main/java/com/bearmod/loader/utils/SessionManager.java): Manages in-memory session state.
+
+## Authentication Flow
+- Login and session restoration are handled in the ViewModel and repository.
+- Session tokens and user info are persisted in SecurePreferences.
+- Logout clears all session and authentication data (see [EnhancedSettingsFragment.kt](mdc:app/src/main/java/com/bearmod/loader/ui/fragments/EnhancedSettingsFragment.kt)).
+
+Refer to these files when implementing or updating authentication logic.
+

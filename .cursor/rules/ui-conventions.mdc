@@ -1,0 +1,16 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# UI, Fragment, and Activity Conventions
+
+- Place new activities and fragments in [ui/](mdc:app/src/main/java/com/bearmod/loader/ui) and subdirectories.
+- Layout XML files go in [res/layout/](mdc:app/src/main/res/layout).
+- Use ViewModel for business logic and LiveData/StateFlow for UI state.
+- For navigation, use explicit intents for activities and fragment transactions for fragments.
+- Handle language changes by updating UI text and, if needed, recreating the activity (see [EnhancedSettingsFragment.kt](mdc:app/src/main/java/com/bearmod/loader/ui/fragments/EnhancedSettingsFragment.kt)).
+- Keep UI responsive and follow Material Design guidelines.
+
+Follow these conventions for consistency and maintainability.
+

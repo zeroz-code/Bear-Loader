@@ -85,7 +85,7 @@ class EnhancedSettingsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_settings, container, false)
         
         initViews(view)
-        setupClickListeners()
+        setupClickListeners(view)
         setupObservers()
         updateLanguage()
         loadUserInformation()
@@ -118,10 +118,10 @@ class EnhancedSettingsFragment : Fragment() {
         tvLogout = view.findViewById(R.id.tvLogout)
     }
 
-    private fun setupClickListeners() {
+    private fun setupClickListeners(view: View) {
         try {
             // Language selection card click - Safe view access with null checks
-            val cardLanguageSelection = view?.findViewById<View>(R.id.cardLanguageSelection)
+            val cardLanguageSelection = view.findViewById<View>(R.id.cardLanguageSelection)
             if (cardLanguageSelection != null) {
                 cardLanguageSelection.setOnClickListener {
                     Log.d("EnhancedSettingsFragment", "Language card clicked")
@@ -135,7 +135,7 @@ class EnhancedSettingsFragment : Fragment() {
             }
 
             // Logout card click
-            val cardLogout = view?.findViewById<View>(R.id.cardLogout)
+            val cardLogout = view.findViewById<View>(R.id.cardLogout)
             if (cardLogout != null) {
                 cardLogout.setOnClickListener {
                     animateButtonPress(it)
@@ -167,8 +167,6 @@ class EnhancedSettingsFragment : Fragment() {
         // Load license information
         updateLicenseInformation()
     }
-
-
 
     private fun updateLicenseInformation() {
         try {
@@ -371,8 +369,6 @@ class EnhancedSettingsFragment : Fragment() {
         return dateFormat.format(Date())
     }
 
-
-
     private fun startPeriodicUpdates() {
         try {
             // Stop any existing updates first
@@ -411,10 +407,6 @@ class EnhancedSettingsFragment : Fragment() {
             Log.e("EnhancedSettingsFragment", "Error stopping periodic updates", e)
         }
     }
-
-
-
-
 
     private fun showSuccessToast(message: String) {
         try {
@@ -456,6 +448,7 @@ class EnhancedSettingsFragment : Fragment() {
             // Clear all user data
             securePreferences.clearAll()
             sessionManager.clearSession()
+            keyAuthRepository.logout()
 
             // Show logout success message
             showToast(if (languageManager.isChineseEnabled()) {
@@ -523,7 +516,6 @@ class EnhancedSettingsFragment : Fragment() {
                                 updateLanguage()
 
                                 // Notify MainActivity to update all fragments with a slight delay
-                                // to ensure this fragment updates first
                                 updateHandler.postDelayed({
                                     if (activity is MainActivity && isAdded && !isDetached) {
                                         (activity as MainActivity).updateLanguage()
@@ -537,6 +529,9 @@ class EnhancedSettingsFragment : Fragment() {
                             } else {
                                 "Language switched to English"
                             })
+
+                            // Force activity recreation for full language update
+                            requireActivity().recreate()
                         }
 
                         dialog.dismiss()
@@ -551,8 +546,6 @@ class EnhancedSettingsFragment : Fragment() {
             Log.e("EnhancedSettingsFragment", "Error showing language dialog", e)
         }
     }
-
-
 
     fun updateLanguage() {
         try {
@@ -570,8 +563,6 @@ class EnhancedSettingsFragment : Fragment() {
                     "License Information :"
                 }
             }
-
-
 
             if (::tvLanguageSettingsHeader.isInitialized) {
                 tvLanguageSettingsHeader.text = if (languageManager.isChineseEnabled()) {
@@ -614,8 +605,6 @@ class EnhancedSettingsFragment : Fragment() {
                     "Logout"
                 }
             }
-
-
 
             // Refresh all user information with new language
             loadUserInformation()
