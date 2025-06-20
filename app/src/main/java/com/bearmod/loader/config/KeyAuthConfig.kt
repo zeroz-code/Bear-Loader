@@ -18,7 +18,7 @@ object KeyAuthConfig {
      * Your owner ID from KeyAuth account settings
      * Click your profile picture -> Account Settings
      */
-    const val OWNER_ID = "yLoA9zcOEF"
+    const val OWNER_ID = " "
 
     /**
      * Your application version
@@ -31,7 +31,7 @@ object KeyAuthConfig {
      * This hash is used for additional security validation
      * Hash from KeyAuth dashboard: 0fcf16068e3c343f85d1abfb761c5609
      */
-    const val CUSTOM_HASH = "0fcf16068e3c343f85d1abfb761c5609"
+    const val CUSTOM_HASH = " "
     
     /**
      * KeyAuth API base URL
