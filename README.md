@@ -42,7 +42,7 @@ object KeyAuthConfig {
     // Replace with your actual KeyAuth application details
     const val APP_NAME = "your-app-name"           // Your application name
     const val OWNER_ID = "your-owner-id"           // Your owner ID
-    const val APP_VERSION = "1.0"                  // Your app version
+    const val APP_VERSION = "1.3"                  // Your app version
     const val API_BASE_URL = "https://keyauth.win/api/1.3/"  // API endpoint
     const val APP_DISPLAY_NAME = "YOUR-APP"        // Display name in UI
     const val APP_DISPLAY_VERSION = "1.0.0"        // Display version
