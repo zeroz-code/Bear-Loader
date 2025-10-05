@@ -1,0 +1,10 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "scan-fn-duplicates",
+			"type": "shell",
+			"command": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$ktMatches=@(); Get-ChildItem -Path 'app' -Recurse -Include '*.kt' | ForEach-Object { $path=$_.FullName; Select-String -Path $path -Pattern '^\\s*fun\\s+([A-Za-z0-9_]+)\\s*\\(' -AllMatches | ForEach-Object { foreach($m in $_.Matches){ $ktMatches += [PSCustomObject]@{File=$path; Func=$m.Groups[1].Value } } } }; $javaMatches=@(); Get-ChildItem -Path 'app' -Recurse -Include '*.java' | ForEach-Object { $path=$_.FullName; Select-String -Path $path -Pattern '^\\s*(public|protected|private)\\s+[A-Za-z0-9_<>\\[\\]]+\\s+([A-Za-z0-9_]+)\\s*\\(' -AllMatches | ForEach-Object { foreach($m in $_.Matches){ $javaMatches += [PSCustomObject]@{File=$path; Func=$m.Groups[2].Value } } } }; $ktByFunc = $ktMatches | Group-Object -Property Func; $javaByFunc = $javaMatches | Group-Object -Property Func; $common = ($ktByFunc.Name | Where-Object { $javaByFunc.Name -contains $_ }) | Sort-Object; if($common.Count -eq 0){ Write-Output 'No duplicate function names found between .kt and .java under app/'; exit 0 } ; Write-Output 'Function, KotlinFiles,JavaFiles, KotlinFileLines (approx), JavaFileLines (approx),Notes'; foreach($f in $common){ $kfiles = ($ktMatches | Where-Object { $_.Func -eq $f } | Select-Object -ExpandProperty File -Unique); $jfiles = ($javaMatches | Where-Object { $_.Func -eq $f } | Select-Object -ExpandProperty File -Unique); $kLines = ($kfiles | ForEach-Object { try{ [IO.File]::ReadAllLines($_).Length } catch {0} } | Measure-Object -Maximum).Maximum; $jLines = ($jfiles | ForEach-Object { try{ [IO.File]::ReadAllLines($_).Length } catch {0} } | Measure-Object -Maximum).Maximum; $notes=@(); if($kLines -gt 300 -or $jLines -gt 300){ $notes += 'Large file(s)'} if([math]::Abs($kLines - $jLines) -gt ([math]::Max(50, [math]::Round([math]::Min($kLines,$jLines)*0.3)))){ $notes += 'Size mismatch' } Write-Output (\"$f,`\"$(($kfiles -join ';'))`\",`\"$(($jfiles -join ';'))`\",$kLines,$jLines,`\"$(($notes -join ';'))`\"\") }\""
+		}
+	]
+}

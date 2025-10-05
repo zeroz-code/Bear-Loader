@@ -42,8 +42,9 @@ class KeyAuthRepository(
     private val customHash = KeyAuthConfig.CUSTOM_HASH
     private val apiBaseUrl = KeyAuthConfig.API_BASE_URL
 
-    // Secure preferences for persistent HWID storage (inject HWIDProvider for consistent generation)
+    // Secure preferences and a session service for session/token operations
     private val securePreferences = SecurePreferences(context, hwidProvider = hwidProvider)
+    private val sessionService = com.bearmod.loader.utils.SessionService(context)
 
     private var sessionId: String? = null
     @Volatile
@@ -327,7 +328,8 @@ class KeyAuthRepository(
                     if (errorMsg.contains("session not found", ignoreCase = true) ||
                         errorMsg.contains("last code", ignoreCase = true)) {
                         if (enableLogging) Log.w("KeyAuthRepository", "❌ Session not found error, clearing stored session...")
-                        securePreferences.clearSessionToken() // 🧹 Key FIX
+                        // Delegate stored-token clearing to SessionService
+                        sessionService.clearSessionToken()
 
                         // Clear in-memory session ID
                         synchronized(initializationLock) {
@@ -550,7 +552,7 @@ class KeyAuthRepository(
                 }
                 is NetworkResult.Error -> {
                     if (enableLogging) Log.w("KeyAuthRepository", "❌ Invalid session detected, clearing stored session...")
-                    securePreferences.clearSessionToken() // 🧹 Key FIX
+                        sessionService.clearSessionToken()
 
                     // Also clear the in-memory session ID
                     synchronized(initializationLock) {
@@ -834,9 +836,8 @@ class KeyAuthRepository(
                 isInitialized = false
             }
 
-            // Clear stored session data
-            securePreferences.clearSessionToken()
-            securePreferences.clearRefreshToken()
+            // Clear stored session data via SessionService (keeps fallback behavior centralized)
+            sessionService.clearSessionToken()
 
             // Reset authentication state
             _authenticationState.value = AuthenticationState()

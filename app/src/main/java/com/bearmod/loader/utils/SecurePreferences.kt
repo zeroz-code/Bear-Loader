@@ -60,12 +60,21 @@ class SecurePreferences @JvmOverloads constructor(
     private fun createSecureSharedPreferences(): SharedPreferences {
         return if (isEncryptionSupported) {
             try {
-                // Ensure the master key exists via the provider
-                if (!keystoreProvider.ensureKey(KEY_ALIAS)) {
-                    throw IllegalStateException("Keystore provider failed to ensure key")
+                // Ensure the master key exists via the provider. If ensureKey fails (for
+                // example in JVM unit tests where AndroidKeyStore isn't available),
+                // fall back to unencrypted preferences rather than throwing an exception.
+                return try {
+                    if (!keystoreProvider.ensureKey(KEY_ALIAS)) {
+                        Log.w(TAG, "Keystore provider failed to ensure key - falling back to unencrypted prefs")
+                        createFallbackPreferences()
+                    } else {
+                        Log.d(TAG, "Successfully initialized Android Keystore encryption")
+                        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                    }
+                } catch (e: Exception) {
+                    Log.e(TAG, "Keystore provider threw while ensuring key, falling back", e)
+                    createFallbackPreferences()
                 }
-                Log.d(TAG, "Successfully initialized Android Keystore encryption")
-                context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to initialize Android Keystore encryption", e)
                 Log.w(TAG, "Falling back to unencrypted preferences - data will not be encrypted!")

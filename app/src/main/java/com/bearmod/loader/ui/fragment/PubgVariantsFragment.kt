@@ -246,13 +246,15 @@ class PubgVariantsFragment : BasePubgFragment() {
         ).show()
 
     // Use DownloadHelper to enqueue downloads via DownloadManager (no browser fallback)
-        val apkName = variant.apk?.name ?: "${variant.id}.apk"
-        val obbName = variant.obb?.name ?: "${variant.id}.obb"
+        // Use the simple downloadUrl on PubgVariant (no nested apk/obb in this model)
+        val apkUrl = variant.downloadUrl.takeIf { it.isNotBlank() }
+        val apkName = apkUrl?.substringAfterLast('/')?.takeIf { it.isNotBlank() } ?: "${variant.id}.apk"
+        val obbName = "${variant.id}.obb" // no OBB URL available in PubgVariant model
 
         com.bearmod.loader.utils.DownloadHelper.enqueueDownloads(
             requireContext(),
-            variant.apk?.url,
-            variant.obb?.url,
+            apkUrl,
+            null, // no OBB URL in this variant model
             apkName,
             obbName
         )
@@ -269,13 +271,14 @@ class PubgVariantsFragment : BasePubgFragment() {
             Toast.LENGTH_SHORT
         ).show()
 
-        val apkName = variant.apk?.name ?: "${variant.id}.apk"
-        val obbName = variant.obb?.name ?: "${variant.id}.obb"
+        val apkUrl = variant.downloadUrl.takeIf { it.isNotBlank() }
+        val apkName = apkUrl?.substringAfterLast('/')?.takeIf { it.isNotBlank() } ?: "${variant.id}.apk"
+        val obbName = "${variant.id}.obb"
 
         com.bearmod.loader.utils.DownloadHelper.enqueueDownloads(
             requireContext(),
-            variant.apk?.url,
-            variant.obb?.url,
+            apkUrl,
+            null,
             apkName,
             obbName
         )

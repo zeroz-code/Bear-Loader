@@ -1,6 +1,8 @@
 package com.bearmod.loader.data.repository
 
 import androidx.test.core.app.ApplicationProvider
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 import com.bearmod.loader.data.api.KeyAuthApiService
 import com.bearmod.loader.data.model.KeyAuthResponse
 import com.bearmod.loader.security.HWIDProvider
@@ -17,6 +19,7 @@ import org.mockito.kotlin.whenever
 import org.mockito.kotlin.anyOrNull
 import retrofit2.Response
 
+@RunWith(RobolectricTestRunner::class)
 class KeyAuthRepositoryHWIDTest {
 
     private lateinit var apiService: KeyAuthApiService
