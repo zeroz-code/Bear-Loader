@@ -13,6 +13,21 @@ public class SessionManager {
     public void clearSession() {
         securePreferences.clearAll();
     }
+
+    /**
+     * Clear only the stored session token and refresh token (preserves other prefs)
+     */
+    public void clearSessionToken() {
+        securePreferences.clearSessionToken();
+        securePreferences.clearRefreshToken();
+    }
+
+    /**
+     * Clear only authentication-related data (keeps user preferences)
+     */
+    public void clearAuthenticationData() {
+        securePreferences.clearAuthenticationData();
+    }
     
     public boolean isLoggedIn() {
         return securePreferences.getLicenseKey() != null && !securePreferences.getLicenseKey().isEmpty();

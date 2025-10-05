@@ -28,7 +28,8 @@ import kotlinx.coroutines.launch
 class LoginActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var securePreferences: SecurePreferences
+    private lateinit var securePreferences: com.bearmod.loader.utils.SecurePreferences
+    private lateinit var sessionService: com.bearmod.loader.session.SessionService
     
     private val viewModel: LoginViewModel by viewModels {
         object : ViewModelProvider.Factory {
@@ -45,13 +46,15 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
-        securePreferences = SecurePreferences(this)
+    securePreferences = com.bearmod.loader.utils.SecurePreferences(this)
+    sessionService = com.bearmod.loader.session.SessionService(securePreferences)
 
         // Migrate preferences from old implementation if needed
         PreferencesMigration.migrateIfNeeded(this, securePreferences)
 
-        // Clear any corrupted session data that might cause "Session not found" errors
-        clearCorruptedSessionData()
+    // Clear any corrupted session data that might cause "Session not found" errors
+    // Use SessionService to centralize the clearing sequence
+    sessionService.clearCorruptedSession()
 
         setupUI()
         setupObservers()
@@ -192,7 +195,7 @@ class LoginActivity : AppCompatActivity() {
                     if (errorMessage.contains("session not found", ignoreCase = true) ||
                         errorMessage.contains("last code", ignoreCase = true) ||
                         errorMessage.contains("session expired", ignoreCase = true)) {
-                        clearCorruptedSessionData()
+                        sessionService.clearCorruptedSession()
                     }
                 }
                 null -> {
@@ -412,28 +415,6 @@ class LoginActivity : AppCompatActivity() {
      * Clear corrupted session data that might cause "Session not found" errors
      * This forces a fresh authentication instead of trying to restore a broken session
      */
-    private fun clearCorruptedSessionData() {
-        try {
-            // Check if session token exists but might be corrupted
-            val sessionToken = securePreferences.getSessionToken()
-            if (!sessionToken.isNullOrEmpty()) {
-                // If we have a session token but it's causing "Session not found" errors,
-                // it might be corrupted or expired on the server side
-                Log.d("LoginActivity", "🧹 Clearing potentially corrupted session data")
-
-                // Clear session-related data but keep user preferences
-                securePreferences.clearSessionToken()
-
-                // Also clear device registration if it might be causing issues
-                if (!securePreferences.isDeviceRegistered()) {
-                    securePreferences.clearDeviceRegistration()
-                }
-
-                Log.d("LoginActivity", "✅ Session data cleared, will perform fresh authentication")
-            }
-        } catch (e: Exception) {
-            Log.e("LoginActivity", "❌ Error clearing corrupted session data", e)
-        }
-    }
+    // ...existing code... (clearCorruptedSessionData logic moved to SessionService)
 
 }

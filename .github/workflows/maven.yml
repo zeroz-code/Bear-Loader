@@ -11,8 +11,16 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "master" ]
+    # Only run on pushes that touch Maven/Java project files (avoid Android-specific repo noise)
+    paths:
+      - 'pom.xml'
+      - '**/pom.xml'
   pull_request:
     branches: [ "master" ]
+    # Run for PRs that modify Maven/Java project files
+    paths:
+      - 'pom.xml'
+      - '**/pom.xml'
 
 jobs:
   build:

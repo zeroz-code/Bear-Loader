@@ -1,0 +1,469 @@
+﻿2025-10-05T04:28:09.7304889Z Current runner version: '2.328.0'
+2025-10-05T04:28:09.7327369Z ##[group]Runner Image Provisioner
+2025-10-05T04:28:09.7328574Z Hosted Compute Agent
+2025-10-05T04:28:09.7329134Z Version: 20250912.392
+2025-10-05T04:28:09.7329700Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+2025-10-05T04:28:09.7330457Z Build Date: 2025-09-12T15:23:14Z
+2025-10-05T04:28:09.7331018Z ##[endgroup]
+2025-10-05T04:28:09.7331584Z ##[group]Operating System
+2025-10-05T04:28:09.7332144Z Ubuntu
+2025-10-05T04:28:09.7332671Z 24.04.3
+2025-10-05T04:28:09.7333101Z LTS
+2025-10-05T04:28:09.7333607Z ##[endgroup]
+2025-10-05T04:28:09.7334083Z ##[group]Runner Image
+2025-10-05T04:28:09.7334666Z Image: ubuntu-24.04
+2025-10-05T04:28:09.7335221Z Version: 20250929.60.1
+2025-10-05T04:28:09.7336267Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250929.60/images/ubuntu/Ubuntu2404-Readme.md
+2025-10-05T04:28:09.7338152Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250929.60
+2025-10-05T04:28:09.7339157Z ##[endgroup]
+2025-10-05T04:28:09.7341665Z ##[group]GITHUB_TOKEN Permissions
+2025-10-05T04:28:09.7343597Z Actions: write
+2025-10-05T04:28:09.7344137Z Attestations: write
+2025-10-05T04:28:09.7344733Z Checks: write
+2025-10-05T04:28:09.7345232Z Contents: write
+2025-10-05T04:28:09.7345745Z Deployments: write
+2025-10-05T04:28:09.7346334Z Discussions: write
+2025-10-05T04:28:09.7346811Z Issues: write
+2025-10-05T04:28:09.7347295Z Metadata: read
+2025-10-05T04:28:09.7348307Z Models: read
+2025-10-05T04:28:09.7349009Z Packages: write
+2025-10-05T04:28:09.7349522Z Pages: write
+2025-10-05T04:28:09.7350071Z PullRequests: write
+2025-10-05T04:28:09.7350674Z RepositoryProjects: write
+2025-10-05T04:28:09.7351237Z SecurityEvents: write
+2025-10-05T04:28:09.7351956Z Statuses: write
+2025-10-05T04:28:09.7352433Z ##[endgroup]
+2025-10-05T04:28:09.7354800Z Secret source: Actions
+2025-10-05T04:28:09.7355545Z Prepare workflow directory
+2025-10-05T04:28:09.7665374Z Prepare all required actions
+2025-10-05T04:28:09.7702493Z Getting action download info
+2025-10-05T04:28:10.1098451Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-10-05T04:28:10.2708012Z Download action repository 'actions/setup-java@v4' (SHA:c5195efecf7bdfc987ee8bae7a71cb8b11521c00)
+2025-10-05T04:28:10.5430597Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2025-10-05T04:28:10.6392049Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2025-10-05T04:28:10.8283142Z Complete job name: build
+2025-10-05T04:28:10.8955435Z ##[group]Run actions/checkout@v4
+2025-10-05T04:28:10.8956332Z with:
+2025-10-05T04:28:10.8956748Z   repository: kothar-1992/Bear-Loader
+2025-10-05T04:28:10.8957582Z   token: ***
+2025-10-05T04:28:10.8957964Z   ssh-strict: true
+2025-10-05T04:28:10.8958356Z   ssh-user: git
+2025-10-05T04:28:10.8958739Z   persist-credentials: true
+2025-10-05T04:28:10.8959179Z   clean: true
+2025-10-05T04:28:10.8959574Z   sparse-checkout-cone-mode: true
+2025-10-05T04:28:10.8960070Z   fetch-depth: 1
+2025-10-05T04:28:10.8960452Z   fetch-tags: false
+2025-10-05T04:28:10.8960837Z   show-progress: true
+2025-10-05T04:28:10.8961232Z   lfs: false
+2025-10-05T04:28:10.8961582Z   submodules: false
+2025-10-05T04:28:10.8961978Z   set-safe-directory: true
+2025-10-05T04:28:10.8962651Z ##[endgroup]
+2025-10-05T04:28:11.0003605Z Syncing repository: kothar-1992/Bear-Loader
+2025-10-05T04:28:11.0005305Z ##[group]Getting Git version info
+2025-10-05T04:28:11.0006068Z Working directory is '/home/runner/work/Bear-Loader/Bear-Loader'
+2025-10-05T04:28:11.0007007Z [command]/usr/bin/git version
+2025-10-05T04:28:11.0088781Z git version 2.51.0
+2025-10-05T04:28:11.0114130Z ##[endgroup]
+2025-10-05T04:28:11.0126696Z Temporarily overriding HOME='/home/runner/work/_temp/f2dd7c08-d039-4fb0-a60a-00d925d14fc4' before making global git config changes
+2025-10-05T04:28:11.0128316Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-05T04:28:11.0131614Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Bear-Loader/Bear-Loader
+2025-10-05T04:28:11.0167815Z Deleting the contents of '/home/runner/work/Bear-Loader/Bear-Loader'
+2025-10-05T04:28:11.0171615Z ##[group]Initializing the repository
+2025-10-05T04:28:11.0176068Z [command]/usr/bin/git init /home/runner/work/Bear-Loader/Bear-Loader
+2025-10-05T04:28:11.0288310Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-10-05T04:28:11.0290025Z hint: is subject to change. To configure the initial branch name to use in all
+2025-10-05T04:28:11.0291034Z hint: of your new repositories, which will suppress this warning, call:
+2025-10-05T04:28:11.0292024Z hint:
+2025-10-05T04:28:11.0293060Z hint: 	git config --global init.defaultBranch <name>
+2025-10-05T04:28:11.0294261Z hint:
+2025-10-05T04:28:11.0295408Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-10-05T04:28:11.0297289Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-10-05T04:28:11.0298945Z hint:
+2025-10-05T04:28:11.0299794Z hint: 	git branch -m <name>
+2025-10-05T04:28:11.0300785Z hint:
+2025-10-05T04:28:11.0301848Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-10-05T04:28:11.0303809Z Initialized empty Git repository in /home/runner/work/Bear-Loader/Bear-Loader/.git/
+2025-10-05T04:28:11.0307047Z [command]/usr/bin/git remote add origin https://github.com/kothar-1992/Bear-Loader
+2025-10-05T04:28:11.0345488Z ##[endgroup]
+2025-10-05T04:28:11.0346848Z ##[group]Disabling automatic garbage collection
+2025-10-05T04:28:11.0350221Z [command]/usr/bin/git config --local gc.auto 0
+2025-10-05T04:28:11.0379398Z ##[endgroup]
+2025-10-05T04:28:11.0380983Z ##[group]Setting up auth
+2025-10-05T04:28:11.0386547Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-05T04:28:11.0417639Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-05T04:28:11.0758784Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-05T04:28:11.0789342Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-05T04:28:11.1006791Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-10-05T04:28:11.1048697Z ##[endgroup]
+2025-10-05T04:28:11.1050604Z ##[group]Fetching the repository
+2025-10-05T04:28:11.1058397Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +14327e4eb3f078111459a50245817e1f32aacaed:refs/remotes/pull/1/merge
+2025-10-05T04:28:11.3227664Z From https://github.com/kothar-1992/Bear-Loader
+2025-10-05T04:28:11.3258946Z  * [new ref]         14327e4eb3f078111459a50245817e1f32aacaed -> pull/1/merge
+2025-10-05T04:28:11.3263008Z ##[endgroup]
+2025-10-05T04:28:11.3264730Z ##[group]Determining the checkout info
+2025-10-05T04:28:11.3266463Z ##[endgroup]
+2025-10-05T04:28:11.3269393Z [command]/usr/bin/git sparse-checkout disable
+2025-10-05T04:28:11.3310522Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-10-05T04:28:11.3339169Z ##[group]Checking out the ref
+2025-10-05T04:28:11.3342643Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1/merge
+2025-10-05T04:28:11.3602697Z Note: switching to 'refs/remotes/pull/1/merge'.
+2025-10-05T04:28:11.3603772Z 
+2025-10-05T04:28:11.3604684Z You are in 'detached HEAD' state. You can look around, make experimental
+2025-10-05T04:28:11.3606358Z changes and commit them, and you can discard any commits you make in this
+2025-10-05T04:28:11.3608692Z state without impacting any branches by switching back to a branch.
+2025-10-05T04:28:11.3609874Z 
+2025-10-05T04:28:11.3611084Z If you want to create a new branch to retain commits you create, you may
+2025-10-05T04:28:11.3612810Z do so (now or later) by using -c with the switch command. Example:
+2025-10-05T04:28:11.3613708Z 
+2025-10-05T04:28:11.3614327Z   git switch -c <new-branch-name>
+2025-10-05T04:28:11.3615154Z 
+2025-10-05T04:28:11.3615622Z Or undo this operation with:
+2025-10-05T04:28:11.3616293Z 
+2025-10-05T04:28:11.3616739Z   git switch -
+2025-10-05T04:28:11.3617253Z 
+2025-10-05T04:28:11.3618285Z Turn off this advice by setting config variable advice.detachedHead to false
+2025-10-05T04:28:11.3619434Z 
+2025-10-05T04:28:11.3620731Z HEAD is now at 14327e4 Merge 53d96047cb1755afcfd3cedce5d9ca584296450d into 40f66e3207809a949c81c1bd24d5cd41b15077ab
+2025-10-05T04:28:11.3623891Z ##[endgroup]
+2025-10-05T04:28:11.3647798Z [command]/usr/bin/git log -1 --format=%H
+2025-10-05T04:28:11.3668931Z 14327e4eb3f078111459a50245817e1f32aacaed
+2025-10-05T04:28:11.3953878Z ##[group]Run actions/setup-java@v4
+2025-10-05T04:28:11.3954558Z with:
+2025-10-05T04:28:11.3955059Z   java-version: 17
+2025-10-05T04:28:11.3955650Z   distribution: temurin
+2025-10-05T04:28:11.3956186Z   java-package: jdk
+2025-10-05T04:28:11.3956703Z   check-latest: false
+2025-10-05T04:28:11.3957273Z   server-id: github
+2025-10-05T04:28:11.3957974Z   server-username: GITHUB_ACTOR
+2025-10-05T04:28:11.3958573Z   server-password: GITHUB_TOKEN
+2025-10-05T04:28:11.3959159Z   overwrite-settings: true
+2025-10-05T04:28:11.3959763Z   job-status: success
+2025-10-05T04:28:11.3960425Z   token: ***
+2025-10-05T04:28:11.4023232Z ##[endgroup]
+2025-10-05T04:28:11.5991026Z ##[group]Installed distributions
+2025-10-05T04:28:11.6051785Z Resolved Java 17.0.16+8 from tool-cache
+2025-10-05T04:28:11.6052802Z Setting Java 17.0.16+8 as the default
+2025-10-05T04:28:11.6065056Z Creating toolchains.xml for JDK version 17 from temurin
+2025-10-05T04:28:11.6139829Z Writing to /home/runner/.m2/toolchains.xml
+2025-10-05T04:28:11.6140606Z 
+2025-10-05T04:28:11.6140944Z Java configuration:
+2025-10-05T04:28:11.6141782Z   Distribution: temurin
+2025-10-05T04:28:11.6142444Z   Version: 17.0.16+8
+2025-10-05T04:28:11.6143632Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T04:28:11.6144443Z 
+2025-10-05T04:28:11.6145265Z ##[endgroup]
+2025-10-05T04:28:11.6160898Z Creating settings.xml with server-id: github
+2025-10-05T04:28:11.6167088Z Writing to /home/runner/.m2/settings.xml
+2025-10-05T04:28:11.7291850Z ##[group]Run actions/cache@v4
+2025-10-05T04:28:11.7293375Z with:
+2025-10-05T04:28:11.7294629Z   path: ~/.gradle/caches
+~/.gradle/wrapper
+
+2025-10-05T04:28:11.7297694Z   key: gradle-Linux-43030d13a3e659838ff40e84da804d964241ba4ab1f422232da7c0319151e890
+2025-10-05T04:28:11.7300579Z   restore-keys: gradle-Linux-
+2025-10-05T04:28:11.7302216Z   enableCrossOsArchive: false
+2025-10-05T04:28:11.7303792Z   fail-on-cache-miss: false
+2025-10-05T04:28:11.7305233Z   lookup-only: false
+2025-10-05T04:28:11.7306553Z   save-always: false
+2025-10-05T04:28:11.7308007Z env:
+2025-10-05T04:28:11.7309754Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T04:28:11.7312880Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T04:28:11.7315338Z ##[endgroup]
+2025-10-05T04:28:11.9617842Z Cache not found for input keys: gradle-Linux-43030d13a3e659838ff40e84da804d964241ba4ab1f422232da7c0319151e890, gradle-Linux-
+2025-10-05T04:28:11.9725807Z ##[group]Run chmod +x gradlew
+2025-10-05T04:28:11.9726802Z [36;1mchmod +x gradlew[0m
+2025-10-05T04:28:11.9763649Z shell: /usr/bin/bash -e {0}
+2025-10-05T04:28:11.9764479Z env:
+2025-10-05T04:28:11.9765499Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T04:28:11.9767268Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T04:28:11.9768860Z ##[endgroup]
+2025-10-05T04:28:11.9920661Z ##[group]Run ./gradlew --no-daemon --no-parallel assembleDebug test
+2025-10-05T04:28:11.9922231Z [36;1m./gradlew --no-daemon --no-parallel assembleDebug test[0m
+2025-10-05T04:28:11.9953692Z shell: /usr/bin/bash -e {0}
+2025-10-05T04:28:11.9954494Z env:
+2025-10-05T04:28:11.9955475Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T04:28:11.9957187Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T04:28:11.9958650Z ##[endgroup]
+2025-10-05T04:28:13.7019712Z Downloading https://services.gradle.org/distributions/gradle-8.11.1-bin.zip
+2025-10-05T04:28:17.3911195Z .............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+2025-10-05T04:28:19.0228411Z 
+2025-10-05T04:28:19.0230603Z Welcome to Gradle 8.11.1!
+2025-10-05T04:28:19.0231032Z 
+2025-10-05T04:28:19.0231349Z Here are the highlights of this release:
+2025-10-05T04:28:19.0233087Z  - Parallel load and store for Configuration Cache
+2025-10-05T04:28:19.0237081Z  - Java compilation errors at the end of the build output
+2025-10-05T04:28:19.0238069Z  - Consolidated report for warnings and deprecations
+2025-10-05T04:28:19.0238598Z 
+2025-10-05T04:28:19.0239277Z For more details see https://docs.gradle.org/8.11.1/release-notes.html
+2025-10-05T04:28:19.0241415Z 
+2025-10-05T04:28:19.1127983Z To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+2025-10-05T04:28:20.8129888Z Daemon will be stopped at the end of the build 
+2025-10-05T04:28:22.2122557Z Calculating task graph as no cached configuration is available for tasks: assembleDebug test
+2025-10-05T04:29:41.5183792Z > Task :app:preBuild UP-TO-DATE
+2025-10-05T04:29:41.5185104Z > Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+2025-10-05T04:29:41.5203019Z > Task :app:preReleaseBuild UP-TO-DATE
+2025-10-05T04:29:41.5203894Z > Task :app:preDebugBuild UP-TO-DATE
+2025-10-05T04:29:41.5210165Z > Task :app:preDebugUnitTestBuild UP-TO-DATE
+2025-10-05T04:29:41.5211147Z > Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+2025-10-05T04:29:41.6154693Z > Task :app:buildKotlinToolingMetadata
+2025-10-05T04:29:41.6155991Z > Task :app:generateDebugResValues
+2025-10-05T04:29:41.6160503Z > Task :app:createDebugCompatibleScreenManifests
+2025-10-05T04:29:41.7122797Z > Task :app:generateDebugResources
+2025-10-05T04:29:42.5154294Z > Task :app:mapDebugSourceSetPaths
+2025-10-05T04:29:42.5155466Z > Task :app:dataBindingMergeDependencyArtifactsDebug
+2025-10-05T04:29:42.5156412Z > Task :app:checkDebugAarMetadata
+2025-10-05T04:29:42.5157078Z > Task :app:extractDeepLinksDebug
+2025-10-05T04:29:42.5157791Z > Task :app:javaPreCompileDebug
+2025-10-05T04:29:42.6122029Z > Task :app:mergeDebugShaders
+2025-10-05T04:29:42.6142984Z > Task :app:compileDebugShaders NO-SOURCE
+2025-10-05T04:29:42.6143904Z > Task :app:generateDebugAssets UP-TO-DATE
+2025-10-05T04:29:42.8122960Z > Task :app:mergeDebugAssets
+2025-10-05T04:29:42.8208419Z > Task :app:compressDebugAssets
+2025-10-05T04:29:42.9121875Z > Task :app:desugarDebugFileDependencies
+2025-10-05T04:29:43.1170272Z > Task :app:processDebugMainManifest
+2025-10-05T04:29:43.4121584Z > Task :app:processDebugManifest
+2025-10-05T04:29:43.8121285Z > Task :app:processDebugManifestForPackage
+2025-10-05T04:29:43.8122915Z > Task :app:mergeDebugJniLibFolders
+2025-10-05T04:29:44.0121752Z > Task :app:packageDebugResources
+2025-10-05T04:29:44.0133473Z > Task :app:mergeDebugNativeLibs NO-SOURCE
+2025-10-05T04:29:44.0143552Z > Task :app:stripDebugDebugSymbols NO-SOURCE
+2025-10-05T04:29:44.1122191Z > Task :app:checkDebugDuplicateClasses
+2025-10-05T04:29:45.5134591Z > Task :app:validateSigningDebug
+2025-10-05T04:30:09.5142180Z > Task :app:mergeDebugResources
+2025-10-05T04:30:09.5142961Z > Task :app:writeDebugAppMetadata
+2025-10-05T04:30:09.5144788Z > Task :app:writeDebugSigningConfigVersions
+2025-10-05T04:30:09.7121529Z > Task :app:parseDebugLocalResources
+2025-10-05T04:30:09.9121709Z > Task :app:javaPreCompileDebugUnitTest
+2025-10-05T04:30:10.8161116Z > Task :app:mergeLibDexDebug
+2025-10-05T04:30:10.8166041Z > Task :app:dataBindingMergeDependencyArtifactsRelease
+2025-10-05T04:30:10.8170392Z > Task :app:generateReleaseResValues
+2025-10-05T04:30:10.8174401Z > Task :app:generateReleaseResources
+2025-10-05T04:30:11.3124443Z > Task :app:dataBindingGenBaseClassesDebug
+2025-10-05T04:30:11.6121668Z > Task :app:packageReleaseResources
+2025-10-05T04:30:11.7122607Z > Task :app:parseReleaseLocalResources
+2025-10-05T04:30:11.7127152Z > Task :app:checkReleaseAarMetadata
+2025-10-05T04:30:11.7128255Z > Task :app:mapReleaseSourceSetPaths
+2025-10-05T04:30:11.8127790Z > Task :app:createReleaseCompatibleScreenManifests
+2025-10-05T04:30:11.8132071Z > Task :app:extractDeepLinksRelease
+2025-10-05T04:30:11.9135129Z > Task :app:processReleaseMainManifest
+2025-10-05T04:30:11.9143273Z > Task :app:processReleaseManifest
+2025-10-05T04:30:11.9146976Z > Task :app:processReleaseManifestForPackage
+2025-10-05T04:30:12.0155096Z > Task :app:javaPreCompileRelease
+2025-10-05T04:30:12.0156066Z > Task :app:preReleaseUnitTestBuild UP-TO-DATE
+2025-10-05T04:30:12.0156943Z > Task :app:javaPreCompileReleaseUnitTest
+2025-10-05T04:30:12.2138429Z > Task :app:processDebugResources
+2025-10-05T04:30:14.1121360Z > Task :app:mergeExtDexDebug
+2025-10-05T04:30:16.8122010Z > Task :app:mergeReleaseResources
+2025-10-05T04:30:17.0121704Z > Task :app:dataBindingGenBaseClassesRelease
+2025-10-05T04:30:19.8123771Z > Task :app:processReleaseResources
+2025-10-05T04:30:42.2121927Z > Task :app:compileDebugKotlin
+2025-10-05T04:30:45.3130038Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/activity/PubgDownloadActivity.kt:141:17 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+2025-10-05T04:30:45.3136879Z       which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+2025-10-05T04:30:45.3144407Z       contracts for common intents available in
+2025-10-05T04:30:45.3149922Z       {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+2025-10-05T04:30:45.3155068Z       testing, and allow receiving results in separate, testable classes independent from your
+2025-10-05T04:30:45.3160303Z       activity. Use
+2025-10-05T04:30:45.3171236Z       {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+2025-10-05T04:30:45.3172525Z       passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+2025-10-05T04:30:45.3176081Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/activity/PubgDownloadActivity.kt:144:17 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+2025-10-05T04:30:45.3178899Z       which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+2025-10-05T04:30:45.3252646Z       contracts for common intents available in
+2025-10-05T04:30:45.3279427Z       {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+2025-10-05T04:30:45.3281080Z       testing, and allow receiving results in separate, testable classes independent from your
+2025-10-05T04:30:45.3282356Z       activity. Use
+2025-10-05T04:30:45.3283202Z       {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+2025-10-05T04:30:45.3284230Z       passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+2025-10-05T04:30:45.3286789Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/PubgVariantsFragment.kt:339:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+2025-10-05T04:30:45.3290809Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/PubgVariantsFragment.kt:344:15 'fun onRequestPermissionsResult(p0: Int, p1: (Array<String!>..Array<out String!>), p2: IntArray): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3294545Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/PubgVariantsFragment.kt:366:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+2025-10-05T04:30:45.3311488Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/PubgVariantsFragment.kt:367:15 'fun onActivityResult(p0: Int, p1: Int, p2: Intent?): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3314261Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:158:13 'fun requestPermissions(p0: (Array<String!>..Array<out String!>), p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3317069Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:170:13 'fun startActivityForResult(p0: Intent!, p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3320001Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:174:17 'fun startActivityForResult(p0: Intent!, p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3322832Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:186:9 'fun requestPermissions(p0: (Array<String!>..Array<out String!>), p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3326045Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:192:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+2025-10-05T04:30:45.3329314Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:193:15 'fun onActivityResult(p0: Int, p1: Int, p2: Intent?): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3332388Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:207:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+2025-10-05T04:30:45.3335709Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:212:15 'fun onRequestPermissionsResult(p0: Int, p1: (Array<String!>..Array<out String!>), p2: IntArray): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3338765Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/utils/PermissionManager.kt:123:30 'fun startActivityForResult(p0: Intent!, p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3341452Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/utils/PermissionManager.kt:127:30 'fun startActivityForResult(p0: Intent!, p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.3344197Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/utils/PermissionManager.kt:132:26 'fun requestPermissions(p0: (Array<String!>..Array<out String!>), p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4193618Z 
+2025-10-05T04:30:45.4195729Z > Task :app:compileReleaseKotlin
+2025-10-05T04:30:45.4198282Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/activity/PubgDownloadActivity.kt:141:17 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+2025-10-05T04:30:45.4200797Z       which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+2025-10-05T04:30:45.4218346Z       contracts for common intents available in
+2025-10-05T04:30:45.4219167Z       {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+2025-10-05T04:30:45.4220214Z       testing, and allow receiving results in separate, testable classes independent from your
+2025-10-05T04:30:45.4220915Z       activity. Use
+2025-10-05T04:30:45.4221544Z       {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+2025-10-05T04:30:45.4222601Z       passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+2025-10-05T04:30:45.4224979Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/activity/PubgDownloadActivity.kt:144:17 'fun startActivityForResult(intent: Intent, requestCode: Int): Unit' is deprecated. This method has been deprecated in favor of using the Activity Result API
+2025-10-05T04:30:45.4227302Z       which brings increased type safety via an {@link ActivityResultContract} and the prebuilt
+2025-10-05T04:30:45.4228280Z       contracts for common intents available in
+2025-10-05T04:30:45.4229055Z       {@link androidx.activity.result.contract.ActivityResultContracts}, provides hooks for
+2025-10-05T04:30:45.4230091Z       testing, and allow receiving results in separate, testable classes independent from your
+2025-10-05T04:30:45.4230795Z       activity. Use
+2025-10-05T04:30:45.4231406Z       {@link #registerForActivityResult(ActivityResultContract, ActivityResultCallback)}
+2025-10-05T04:30:45.4232437Z       passing in a {@link StartActivityForResult} object for the {@link ActivityResultContract}.
+2025-10-05T04:30:45.4234718Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/PubgVariantsFragment.kt:339:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+2025-10-05T04:30:45.4238186Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/PubgVariantsFragment.kt:344:15 'fun onRequestPermissionsResult(p0: Int, p1: (Array<String!>..Array<out String!>), p2: IntArray): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4241707Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/PubgVariantsFragment.kt:366:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+2025-10-05T04:30:45.4244906Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/PubgVariantsFragment.kt:367:15 'fun onActivityResult(p0: Int, p1: Int, p2: Intent?): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4247924Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:158:13 'fun requestPermissions(p0: (Array<String!>..Array<out String!>), p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4250775Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:170:13 'fun startActivityForResult(p0: Intent!, p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4253467Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:174:17 'fun startActivityForResult(p0: Intent!, p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4256510Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:186:9 'fun requestPermissions(p0: (Array<String!>..Array<out String!>), p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4259918Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:192:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+2025-10-05T04:30:45.4263187Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:193:15 'fun onActivityResult(p0: Int, p1: Int, p2: Intent?): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4266104Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:207:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Please add the '@Deprecated' annotation or suppress the diagnostic.
+2025-10-05T04:30:45.4269323Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/ui/fragment/ZeusPubgFragment.kt:212:15 'fun onRequestPermissionsResult(p0: Int, p1: (Array<String!>..Array<out String!>), p2: IntArray): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4272060Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/utils/PermissionManager.kt:123:30 'fun startActivityForResult(p0: Intent!, p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4274603Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/utils/PermissionManager.kt:127:30 'fun startActivityForResult(p0: Intent!, p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.4277374Z w: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/main/java/com/bearmod/loader/utils/PermissionManager.kt:132:26 'fun requestPermissions(p0: (Array<String!>..Array<out String!>), p1: Int): Unit' is deprecated. Deprecated in Java.
+2025-10-05T04:30:45.5132554Z 
+2025-10-05T04:30:45.5163562Z > Task :app:processReleaseJavaRes
+2025-10-05T04:30:45.5167370Z > Task :app:processDebugJavaRes
+2025-10-05T04:30:46.6121617Z > Task :app:mergeDebugJavaResource
+2025-10-05T04:30:50.4126647Z > Task :app:compileReleaseJavaWithJavac
+2025-10-05T04:30:50.4127833Z > Task :app:compileDebugJavaWithJavac
+2025-10-05T04:30:50.5123424Z > Task :app:bundleReleaseClassesToCompileJar
+2025-10-05T04:30:50.5123996Z > Task :app:bundleDebugClassesToCompileJar
+2025-10-05T04:30:50.6140455Z > Task :app:bundleDebugClassesToRuntimeJar
+2025-10-05T04:30:51.1138705Z > Task :app:bundleReleaseClassesToRuntimeJar
+2025-10-05T04:30:53.1134328Z > Task :app:dexBuilderDebug
+2025-10-05T04:30:53.5121745Z > Task :app:mergeDebugGlobalSynthetics
+2025-10-05T04:30:53.6147950Z > Task :app:mergeProjectDexDebug
+2025-10-05T04:30:54.7166284Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:45:30 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7172534Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:59:30 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7175188Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:49 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7178164Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:75 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7181121Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:82 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7184344Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:89 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7187256Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:96 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7190578Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:103 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7199189Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:64:49 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7204023Z 
+2025-10-05T04:30:54.7205432Z > Task :app:compileReleaseUnitTestKotlin FAILED
+2025-10-05T04:30:54.7206996Z 
+2025-10-05T04:30:54.7208618Z > Task :app:compileDebugUnitTestKotlin FAILED
+2025-10-05T04:30:54.7210357Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:64:83 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7213261Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:64:90 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7216247Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:64:97 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7219048Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:77:30 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7221596Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:46 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7224284Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:72 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7227114Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:79 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7230083Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:86 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7232857Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:93 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7235687Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:100 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7238517Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:46 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7241102Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:75 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7243874Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:82 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7246829Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:89 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7299293Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:96 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7300995Z 
+2025-10-05T04:30:54.7302453Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:103 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7305842Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:83:33 Cannot access 'suspend fun attemptHWIDBasedAuth(): NetworkResult<KeyAuthResponse>': it is private in 'com/bearmod/loader/data/repository/KeyAuthRepository'.
+2025-10-05T04:30:54.7309326Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:45:30 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7311791Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:59:30 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7314325Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:49 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7316994Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:75 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7319993Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:82 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7322894Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:89 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7325806Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:96 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7328803Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:63:103 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7331470Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:64:49 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7334132Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:64:83 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7336945Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:64:90 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7340005Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:64:97 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7342653Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:77:30 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7345062Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:46 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7348085Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:72 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7351156Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:79 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7353981Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:86 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7356815Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:93 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7410012Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:80:100 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7412344Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:46 Unresolved reference 'whenever'.
+2025-10-05T04:30:54.7414732Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:75 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7417313Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:82 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7420083Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:89 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7422652Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:96 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7425143Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:81:103 Cannot infer type for this parameter. Please specify it explicitly.
+2025-10-05T04:30:54.7428342Z e: file:///home/runner/work/Bear-Loader/Bear-Loader/app/src/test/java/com/bearmod/loader/data/repository/KeyAuthRepositoryHWIDTest.kt:83:33 Cannot access 'suspend fun attemptHWIDBasedAuth(): NetworkResult<KeyAuthResponse>': it is private in 'com/bearmod/loader/data/repository/KeyAuthRepository'.
+2025-10-05T04:30:54.7430352Z > Task :app:packageDebug
+2025-10-05T04:30:54.7430748Z > Task :app:createDebugApkListingFileRedirect
+2025-10-05T04:30:54.8139855Z 
+2025-10-05T04:30:54.9121393Z FAILURE: Build completed with 2 failures.
+2025-10-05T04:30:54.9125556Z 
+2025-10-05T04:30:54.9168576Z 64 actionable tasks: 64 executed
+2025-10-05T04:30:54.9169446Z 1: Task failed with an exception.
+2025-10-05T04:30:54.9172277Z -----------
+2025-10-05T04:30:54.9172682Z * What went wrong:
+2025-10-05T04:30:54.9173420Z Execution failed for task ':app:compileDebugUnitTestKotlin'.
+2025-10-05T04:30:54.9174909Z > A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+2025-10-05T04:30:54.9176049Z    > Compilation error. See log for more details
+2025-10-05T04:30:54.9176383Z 
+2025-10-05T04:30:54.9176485Z * Try:
+2025-10-05T04:30:54.9176882Z > Run with --stacktrace option to get the stack trace.
+2025-10-05T04:30:54.9177716Z > Run with --info or --debug option to get more log output.
+2025-10-05T04:30:54.9178240Z > Run with --scan to get full insights.
+2025-10-05T04:30:54.9178709Z > Get more help at https://help.gradle.org.
+2025-10-05T04:30:54.9179593Z ==============================================================================
+2025-10-05T04:30:54.9179933Z 
+2025-10-05T04:30:54.9180083Z 2: Task failed with an exception.
+2025-10-05T04:30:54.9180812Z -----------
+2025-10-05T04:30:54.9181082Z * What went wrong:
+2025-10-05T04:30:54.9181547Z Execution failed for task ':app:compileReleaseUnitTestKotlin'.
+2025-10-05T04:30:54.9182755Z > A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+2025-10-05T04:30:54.9183850Z    > Compilation error. See log for more details
+2025-10-05T04:30:54.9184164Z 
+2025-10-05T04:30:54.9184265Z * Try:
+2025-10-05T04:30:54.9184595Z > Run with --stacktrace option to get the stack trace.
+2025-10-05T04:30:54.9185151Z > Run with --info or --debug option to get more log output.
+2025-10-05T04:30:54.9185656Z > Run with --scan to get full insights.
+2025-10-05T04:30:54.9186170Z > Get more help at https://help.gradle.org.
+2025-10-05T04:30:54.9186623Z ==============================================================================
+2025-10-05T04:30:54.9186931Z 
+2025-10-05T04:30:54.9187059Z BUILD FAILED in 2m 41s
+2025-10-05T04:30:54.9187561Z Configuration cache entry stored.
+2025-10-05T04:30:55.4628829Z ##[error]Process completed with exit code 1.
+2025-10-05T04:30:55.4745045Z ##[group]Run actions/upload-artifact@v4
+2025-10-05T04:30:55.4745474Z with:
+2025-10-05T04:30:55.4745754Z   name: app-build-artifacts
+2025-10-05T04:30:55.4746120Z   path: app/build/outputs
+2025-10-05T04:30:55.4746461Z   if-no-files-found: warn
+2025-10-05T04:30:55.4746798Z   compression-level: 6
+2025-10-05T04:30:55.4747098Z   overwrite: false
+2025-10-05T04:30:55.4747599Z   include-hidden-files: false
+2025-10-05T04:30:55.4747958Z env:
+2025-10-05T04:30:55.4748394Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T04:30:55.4749172Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T04:30:55.4749759Z ##[endgroup]
+2025-10-05T04:30:55.7044853Z With the provided path, there will be 4 files uploaded
+2025-10-05T04:30:55.7050380Z Artifact name is valid!
+2025-10-05T04:30:55.7051417Z Root directory input is valid!
+2025-10-05T04:30:55.8033113Z Beginning upload of artifact content to blob storage
+2025-10-05T04:30:56.3195115Z Uploaded bytes 8388608
+2025-10-05T04:30:56.4140795Z Uploaded bytes 12404568
+2025-10-05T04:30:56.4315924Z Finished uploading artifact content to blob storage!
+2025-10-05T04:30:56.4320240Z SHA256 digest of uploaded artifact zip is bf0c029aa6772a38e2a2c86a1cc00e115ecc5ac116c47dff858cc5f68792ae12
+2025-10-05T04:30:56.4323213Z Finalizing artifact upload
+2025-10-05T04:30:56.5050674Z Artifact app-build-artifacts.zip successfully finalized. Artifact ID 4184545566
+2025-10-05T04:30:56.5051592Z Artifact app-build-artifacts has been successfully uploaded! Final size is 12404568 bytes. Artifact ID is 4184545566
+2025-10-05T04:30:56.5057667Z Artifact download URL: https://github.com/kothar-1992/Bear-Loader/actions/runs/18253918185/artifacts/4184545566
+2025-10-05T04:30:56.5214704Z Post job cleanup.
+2025-10-05T04:30:56.6928438Z Post job cleanup.
+2025-10-05T04:30:56.7951098Z [command]/usr/bin/git version
+2025-10-05T04:30:56.7999833Z git version 2.51.0
+2025-10-05T04:30:56.8043455Z Temporarily overriding HOME='/home/runner/work/_temp/e3e812d2-6139-409d-aa50-df82f376da27' before making global git config changes
+2025-10-05T04:30:56.8044769Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-05T04:30:56.8049722Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Bear-Loader/Bear-Loader
+2025-10-05T04:30:56.8084696Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-05T04:30:56.8118779Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-05T04:30:56.8362000Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-05T04:30:56.8384442Z http.https://github.com/.extraheader
+2025-10-05T04:30:56.8397588Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-10-05T04:30:56.8428344Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-05T04:30:56.8771025Z Cleaning up orphan processes
+2025-10-05T04:30:56.9046363Z Terminate orphan process: pid (2419) (java)

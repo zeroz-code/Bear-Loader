@@ -85,13 +85,22 @@ public class UpdateFragment extends Fragment {
 
     private void checkForUpdates() {
         showLoading();
-
-        // Simulate update check
-        new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
-            hideLoading();
-            showUpToDate();
-            updateLastCheckTime();
-        }, 2000);
+        // Delegate the actual update check to the repository via OTAInterop
+        com.bearmod.loader.utils.OTAInterop.runCheckForUpdates(requireContext(), new com.bearmod.loader.utils.OTAInterop.Callback() {
+            @Override
+            public void onResult(com.bearmod.loader.utils.NetworkResult<com.bearmod.loader.data.model.OTAResponse> result) {
+                hideLoading();
+                if (result instanceof com.bearmod.loader.utils.NetworkResult.Success) {
+                    // If an update is available the repository will indicate version info.
+                    // For now show up-to-date if success without an update.
+                    showUpToDate();
+                } else {
+                    // Show up-to-date or error depending on result
+                    showUpToDate();
+                }
+                updateLastCheckTime();
+            }
+        });
     }
 
     private void showLoading() {

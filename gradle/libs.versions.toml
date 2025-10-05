@@ -23,7 +23,7 @@ coroutines = "1.10.2"
 robolectric = "4.11.1"
 # securityCrypto = "1.1.0-beta01"  # Removed - deprecated APIs, using Android Keystore directly
 hilt = "2.48"
-mockito = "5.18.0"
+mockito = "5.1.0"
 
 
 [libraries]
