@@ -3,23 +3,23 @@ package com.bearmod.loader.utils
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Build
-import android.security.keystore.KeyGenParameterSpec
-import android.security.keystore.KeyProperties
 import android.util.Base64
 import android.util.Log
-import java.io.IOException
-import java.security.GeneralSecurityException
-import java.security.KeyStore
-import javax.crypto.Cipher
-import javax.crypto.KeyGenerator
-import javax.crypto.SecretKey
-import javax.crypto.spec.GCMParameterSpec
+import com.bearmod.loader.security.AndroidKeystoreProvider
+import com.bearmod.loader.security.KeystoreProvider
+import com.bearmod.loader.security.HWIDProvider
 
 /**
  * Secure preferences utility for storing sensitive data using Android Keystore directly
  * Updated to replace deprecated AndroidX Security Crypto APIs with direct Keystore usage
  */
-class SecurePreferences(private val context: Context) {
+import kotlin.jvm.JvmOverloads
+
+class SecurePreferences @JvmOverloads constructor(
+    private val context: Context,
+    private val keystoreProvider: KeystoreProvider = AndroidKeystoreProvider(),
+    private val hwidProvider: HWIDProvider? = null
+) : com.bearmod.loader.session.SessionStore {
 
     companion object {
         private const val TAG = "SecurePreferences"
@@ -60,8 +60,10 @@ class SecurePreferences(private val context: Context) {
     private fun createSecureSharedPreferences(): SharedPreferences {
         return if (isEncryptionSupported) {
             try {
-                // Initialize the master key in Android Keystore
-                initializeMasterKey()
+                // Ensure the master key exists via the provider
+                if (!keystoreProvider.ensureKey(KEY_ALIAS)) {
+                    throw IllegalStateException("Keystore provider failed to ensure key")
+                }
                 Log.d(TAG, "Successfully initialized Android Keystore encryption")
                 context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
             } catch (e: Exception) {
@@ -73,40 +75,6 @@ class SecurePreferences(private val context: Context) {
             Log.w(TAG, "Android Keystore not supported on this device (API < 23)")
             Log.w(TAG, "Using unencrypted preferences - data will not be encrypted!")
             createFallbackPreferences()
-        }
-    }
-
-    /**
-     * Initializes or retrieves the master key from Android Keystore
-     */
-    private fun initializeMasterKey() {
-        try {
-            val keyStore = KeyStore.getInstance(KEYSTORE_PROVIDER)
-            keyStore.load(null)
-
-            // Check if key already exists
-            if (!keyStore.containsAlias(KEY_ALIAS)) {
-                // Generate new key
-                val keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, KEYSTORE_PROVIDER)
-                val keyGenParameterSpec = KeyGenParameterSpec.Builder(
-                    KEY_ALIAS,
-                    KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT
-                )
-                    .setBlockModes(KeyProperties.BLOCK_MODE_GCM)
-                    .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE)
-                    .setUserAuthenticationRequired(false)
-                    .setRandomizedEncryptionRequired(true)
-                    .build()
-
-                keyGenerator.init(keyGenParameterSpec)
-                keyGenerator.generateKey()
-                Log.d(TAG, "Generated new master key in Android Keystore")
-            } else {
-                Log.d(TAG, "Using existing master key from Android Keystore")
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "Failed to initialize master key", e)
-            throw e
         }
     }
 
@@ -123,21 +91,8 @@ class SecurePreferences(private val context: Context) {
     private fun encryptData(data: String): String? {
         return if (isEncryptionSupported) {
             try {
-                val keyStore = KeyStore.getInstance(KEYSTORE_PROVIDER)
-                keyStore.load(null)
-
-                val secretKey = keyStore.getKey(KEY_ALIAS, null) as SecretKey
-                val cipher = Cipher.getInstance(TRANSFORMATION)
-                cipher.init(Cipher.ENCRYPT_MODE, secretKey)
-
-                val iv = cipher.iv
-                val encryptedData = cipher.doFinal(data.toByteArray(Charsets.UTF_8))
-
-                // Combine IV and encrypted data
-                val combined = ByteArray(iv.size + encryptedData.size)
-                System.arraycopy(iv, 0, combined, 0, iv.size)
-                System.arraycopy(encryptedData, 0, combined, iv.size, encryptedData.size)
-
+                val combined = keystoreProvider.encrypt(KEY_ALIAS, data.toByteArray(Charsets.UTF_8))
+                    ?: return null
                 Base64.encodeToString(combined, Base64.DEFAULT)
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to encrypt data", e)
@@ -155,24 +110,9 @@ class SecurePreferences(private val context: Context) {
     private fun decryptData(encryptedData: String): String? {
         return if (isEncryptionSupported) {
             try {
-                val keyStore = KeyStore.getInstance(KEYSTORE_PROVIDER)
-                keyStore.load(null)
-
-                val secretKey = keyStore.getKey(KEY_ALIAS, null) as SecretKey
                 val combined = Base64.decode(encryptedData, Base64.DEFAULT)
-
-                // Extract IV and encrypted data
-                val iv = ByteArray(GCM_IV_LENGTH)
-                val encrypted = ByteArray(combined.size - GCM_IV_LENGTH)
-                System.arraycopy(combined, 0, iv, 0, iv.size)
-                System.arraycopy(combined, iv.size, encrypted, 0, encrypted.size)
-
-                val cipher = Cipher.getInstance(TRANSFORMATION)
-                val gcmParameterSpec = GCMParameterSpec(GCM_TAG_LENGTH * 8, iv)
-                cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmParameterSpec)
-
-                val decryptedData = cipher.doFinal(encrypted)
-                String(decryptedData, Charsets.UTF_8)
+                val decrypted = keystoreProvider.decrypt(KEY_ALIAS, combined) ?: return null
+                String(decrypted, Charsets.UTF_8)
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to decrypt data", e)
                 null
@@ -357,6 +297,44 @@ class SecurePreferences(private val context: Context) {
         }
     }
 
+    /**
+     * Returns the stored HWID or generates a new one.
+     * If an external HWIDProvider was supplied it will be used and its result persisted.
+     * Otherwise fall back to a safe ANDROID_ID / UUID strategy.
+     */
+    fun getOrCreateHWID(): String {
+        // If already stored, return it
+        val existing = getStoredHWID()
+        if (!existing.isNullOrBlank()) return existing
+
+        // If an HWIDProvider was injected, delegate to it (useful for tests)
+        hwidProvider?.let {
+            // Call provider safely and treat any exception as a null result so the
+            // overall expression keeps a consistent nullable String type.
+            val provided: String? = try {
+                it.getHWID()
+            } catch (t: Throwable) {
+                null
+            }
+
+            if (!provided.isNullOrBlank()) {
+                storeHWID(provided)
+                return provided
+            }
+        }
+
+        // Fallback: try ANDROID_ID first, then UUID
+        val androidId = try {
+            android.provider.Settings.Secure.getString(context.contentResolver, android.provider.Settings.Secure.ANDROID_ID)
+        } catch (t: Throwable) {
+            null
+        }
+
+        val hwid = if (!androidId.isNullOrBlank()) androidId else java.util.UUID.randomUUID().toString()
+        storeHWID(hwid)
+        return hwid
+    }
+
     // ==================== SESSION AND TOKEN MANAGEMENT ====================
 
     /**
@@ -364,7 +342,7 @@ class SecurePreferences(private val context: Context) {
      * @param sessionToken The session token from KeyAuth
      * @param expiryTimeMillis When the token expires (System.currentTimeMillis() + duration)
      */
-    fun storeSessionToken(sessionToken: String, expiryTimeMillis: Long = 0L) {
+    override fun storeSessionToken(sessionToken: String, expiryTimeMillis: Long) {
         try {
             val dataToStore = if (isEncryptionSupported) {
                 encryptData(sessionToken) ?: run {
@@ -389,7 +367,7 @@ class SecurePreferences(private val context: Context) {
      * Get stored session token
      * @return The session token or null if not found or expired
      */
-    fun getSessionToken(): String? {
+    override fun getSessionToken(): String? {
         return try {
             // Check if token is expired
             val expiryTime = sharedPreferences.getLong(KEY_TOKEN_EXPIRY, 0L)
@@ -438,7 +416,7 @@ class SecurePreferences(private val context: Context) {
     /**
      * Clear stored session token
      */
-    fun clearSessionToken() {
+    override fun clearSessionToken() {
         try {
             sharedPreferences.edit()
                 .remove(KEY_SESSION_TOKEN)
@@ -449,6 +427,8 @@ class SecurePreferences(private val context: Context) {
             Log.e(TAG, "Failed to clear session token", e)
         }
     }
+
+    // Implement SessionStore by marking the relevant existing methods with 'override'.
 
     /**
      * Store refresh token for session renewal
@@ -537,7 +517,7 @@ class SecurePreferences(private val context: Context) {
     /**
      * Check if device is registered
      */
-    fun isDeviceRegistered(): Boolean {
+    override fun isDeviceRegistered(): Boolean {
         return try {
             sharedPreferences.getBoolean(KEY_DEVICE_REGISTERED, false)
         } catch (e: Exception) {
@@ -616,7 +596,7 @@ class SecurePreferences(private val context: Context) {
     /**
      * Clear all device registration data
      */
-    fun clearDeviceRegistration() {
+    override fun clearDeviceRegistration() {
         try {
             sharedPreferences.edit()
                 .remove(KEY_DEVICE_REGISTERED)

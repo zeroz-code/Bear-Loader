@@ -15,6 +15,8 @@ import com.bearmod.loader.data.model.AuthError
 import com.bearmod.loader.data.model.AuthErrorType
 import com.bearmod.loader.utils.NetworkResult
 import com.bearmod.loader.utils.SecurePreferences
+import com.bearmod.loader.security.AndroidHWIDProvider
+import com.bearmod.loader.security.HWIDProvider
 import com.bearmod.loader.utils.SessionDebugger
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -29,7 +31,8 @@ import java.security.MessageDigest
 class KeyAuthRepository(
     private val apiService: KeyAuthApiService,
     private val context: Context,
-    private val enableLogging: Boolean = true
+    private val enableLogging: Boolean = true,
+    private val hwidProvider: HWIDProvider = AndroidHWIDProvider(context)
 ) {
 
     // KeyAuth application configuration from config
@@ -39,8 +42,8 @@ class KeyAuthRepository(
     private val customHash = KeyAuthConfig.CUSTOM_HASH
     private val apiBaseUrl = KeyAuthConfig.API_BASE_URL
 
-    // Secure preferences for persistent HWID storage
-    private val securePreferences = SecurePreferences(context)
+    // Secure preferences for persistent HWID storage (inject HWIDProvider for consistent generation)
+    private val securePreferences = SecurePreferences(context, hwidProvider = hwidProvider)
 
     private var sessionId: String? = null
     @Volatile
@@ -210,7 +213,7 @@ class KeyAuthRepository(
                 }
             }
 
-            val hwid = generateHWID()
+            val hwid = hwidProvider.getHWID()
             val currentSessionId = sessionId ?: run {
                 if (enableLogging) Log.e("KeyAuthRepository", "❌ No session ID available after initialization")
                 return@withContext NetworkResult.Error("No session ID available")
@@ -480,7 +483,7 @@ class KeyAuthRepository(
             }
 
             // Validate HWID consistency
-            val currentHwid = generateHWID()
+            val currentHwid = hwidProvider.getHWID()
             val lastAuthHwid = securePreferences.getLastAuthHWID()
 
             if (lastAuthHwid != null && lastAuthHwid != currentHwid) {
@@ -633,7 +636,7 @@ class KeyAuthRepository(
                 return@withContext NetworkResult.Error("No bound license key")
             }
 
-            val hwid = generateHWID()
+            val hwid = hwidProvider.getHWID()
             if (enableLogging) Log.d("KeyAuthRepository", "🔐 Attempting HWID-based authentication...")
 
             // Ensure clean initialization for HWID-based authentication
@@ -683,7 +686,7 @@ class KeyAuthRepository(
      */
     fun validateHWID(): HWIDValidationResult {
         return try {
-            val currentHwid = generateHWID()
+            val currentHwid = hwidProvider.getHWID()
             val lastAuthHwid = securePreferences.getLastAuthHWID()
 
             when {

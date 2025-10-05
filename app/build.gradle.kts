@@ -43,7 +43,7 @@ android {
         jvmTarget = "17"
     }
     buildFeatures {
-        viewBinding = true
+        viewBinding = true 
     }
 
     lint {
@@ -101,6 +101,9 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
+    // Mockito-Kotlin helpers (for nicer Kotlin-friendly mocks/stubs) - pinned to 5.1.0
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.1.0")
+    // AndroidX Test dependencies required by some JVM tests (ApplicationProvider, AndroidJUnit4)
     testImplementation(libs.androidx.core)
     testImplementation(libs.androidx.junit.v115)
     testImplementation(libs.robolectric)
