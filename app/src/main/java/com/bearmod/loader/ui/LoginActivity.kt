@@ -60,6 +60,11 @@ class LoginActivity : AppCompatActivity() {
         setupObservers()
         loadSavedPreferences()
 
+    // Run entry animations for premium feel
+    runEntryAnimations()
+    // Setup parallax and theme toggle
+    setupParallaxAndThemeToggle()
+
         // Enhanced initialization with session restoration
         Log.d("LoginActivity", "🚀 Starting enhanced KeyAuth initialization with session restoration")
 
@@ -70,6 +75,85 @@ class LoginActivity : AppCompatActivity() {
         } else {
             Log.d("LoginActivity", "🔄 Standard initialization (no auto-login)")
             viewModel.initializeApp()
+        }
+    }
+
+    private fun runEntryAnimations() {
+        try {
+            val slideIn = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.slide_in_up)
+            binding.cardLogo.startAnimation(slideIn)
+            binding.tvAppTitle.startAnimation(slideIn)
+            binding.cardLicenseInput.startAnimation(slideIn)
+            binding.btnLogin.startAnimation(slideIn)
+
+            // Button touch feedback to scale slightly on press/release
+            binding.btnLogin.setOnTouchListener { v, event ->
+                when (event.action) {
+                    android.view.MotionEvent.ACTION_DOWN -> {
+                        v.startAnimation(android.view.animation.AnimationUtils.loadAnimation(this, R.anim.button_press_scale))
+                    }
+                    android.view.MotionEvent.ACTION_UP, android.view.MotionEvent.ACTION_CANCEL -> {
+                        v.startAnimation(android.view.animation.AnimationUtils.loadAnimation(this, R.anim.button_release_scale))
+                    }
+                }
+                // Return false so click still propagates
+                false
+            }
+            // Start logo shimmer animation if available
+            try {
+                val shimmerView = binding.root.findViewById<android.widget.ImageView>(R.id.ivLogoShimmer)
+                val drawable = shimmerView?.drawable
+                if (drawable is android.graphics.drawable.AnimatedVectorDrawable) {
+                    drawable.start()
+                }
+            } catch (e: Exception) {
+                // ignore
+            }
+        } catch (e: Exception) {
+            // Ignore if animations fail on older devices
+        }
+    }
+
+    private fun setupParallaxAndThemeToggle() {
+        // Parallax background subtle movement based on touch
+        val parallax = binding.root.findViewById<android.view.View>(R.id.parallaxContainer)
+        parallax?.setOnTouchListener { v, event ->
+            try {
+                when (event.action) {
+                    android.view.MotionEvent.ACTION_MOVE, android.view.MotionEvent.ACTION_DOWN -> {
+                        val cx = v.width / 2f
+                        val cy = v.height / 2f
+                        val dx = (event.x - cx) / cx
+                        val dy = (event.y - cy) / cy
+
+                        // Apply a subtle translation to background layers
+                        val maxTranslate = 8f // px
+                        binding.cardLogo.translationX = -dx * maxTranslate
+                        binding.cardLogo.translationY = -dy * maxTranslate
+                        binding.cardLicenseInput.translationX = -dx * (maxTranslate / 2f)
+                        binding.cardLicenseInput.translationY = -dy * (maxTranslate / 2f)
+                    }
+                    android.view.MotionEvent.ACTION_UP, android.view.MotionEvent.ACTION_CANCEL -> {
+                        // Smoothly return to center
+                        binding.cardLogo.animate().translationX(0f).translationY(0f).setDuration(220).start()
+                        binding.cardLicenseInput.animate().translationX(0f).translationY(0f).setDuration(220).start()
+                    }
+                }
+            } catch (e: Exception) {
+                // ignore
+            }
+            false
+        }
+
+        // Theme toggle
+        binding.root.findViewById<android.widget.ImageButton>(R.id.btnThemeToggle)?.setOnClickListener {
+            // Toggle between light/dark
+            val current = androidx.appcompat.app.AppCompatDelegate.getDefaultNightMode()
+            if (current == androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES) {
+                androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO)
+            } else {
+                androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES)
+            }
         }
     }
     
@@ -407,7 +491,15 @@ class LoginActivity : AppCompatActivity() {
     
     private fun navigateToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+
+        // Shared element transition for premium feel (logo)
+        val options = androidx.core.app.ActivityOptionsCompat.makeSceneTransitionAnimation(
+            this,
+            binding.ivBearLogo as android.view.View,
+            "bear_logo_transition"
+        )
+
+        startActivity(intent, options.toBundle())
         finish()
     }
 
