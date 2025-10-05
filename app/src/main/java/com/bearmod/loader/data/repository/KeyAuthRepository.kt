@@ -933,6 +933,77 @@ class KeyAuthRepository(
             return@withContext NetworkResult.Error(errorMessage)
         }
     }
+
+    /**
+     * Authenticate with license key but allow a single HWID/session update retry.
+     *
+     * Behavior:
+     *  - Ensures the client is initialized (clean init).
+     *  - Attempts license authentication once.
+     *  - If server responds with "session not found" / HWID mismatch style errors,
+     *    clears the persisted session token, resets in-memory session state,
+     *    performs a fresh initialization and retries authentication once.
+     *
+     * This preserves the KeyAuth requirement that init() must run before license()
+     * and that init() must never receive stored session tokens.
+     */
+    suspend fun authenticateWithLicenseAllowHwidUpdate(licenseKey: String): NetworkResult<KeyAuthResponse> = withContext(Dispatchers.IO) {
+        try {
+            // Ensure clean initialization first (never pass stored tokens into init)
+            if (!isAppInitialized()) {
+                if (enableLogging) Log.d("KeyAuthRepository", "🔄 authenticateWithLicenseAllowHwidUpdate: performing clean initialization...")
+                val initResult = initialize(preserveSession = false)
+                if (initResult !is NetworkResult.Success) {
+                    if (enableLogging) Log.e("KeyAuthRepository", "❌ Initialization failed before license auth: ${(initResult as? NetworkResult.Error)?.message}")
+                    return@withContext NetworkResult.Error("Initialization failed: ${(initResult as? NetworkResult.Error)?.message}")
+                }
+            }
+
+            // First attempt
+            val firstAttempt = authenticateWithLicense(licenseKey)
+            if (firstAttempt is NetworkResult.Success) return@withContext firstAttempt
+
+            // Inspect error for session/HWID-specific messages
+            val errMsg = (firstAttempt as? NetworkResult.Error)?.message ?: ""
+            val indicatesSessionIssue = errMsg.contains("session not found", ignoreCase = true) ||
+                    errMsg.contains("last code", ignoreCase = true) ||
+                    errMsg.contains("Session expired or invalid", ignoreCase = true)
+
+            if (indicatesSessionIssue) {
+                if (enableLogging) Log.w("KeyAuthRepository", "⚠️ Session/HWID issue detected during license auth, attempting clear + re-init + retry")
+
+                // Clear persisted session token and reset in-memory state
+                try {
+                    sessionService.clearSessionToken()
+                } catch (e: Exception) {
+                    if (enableLogging) Log.w("KeyAuthRepository", "⚠️ Failed to clear persisted session token: ${e.message}")
+                }
+
+                synchronized(initializationLock) {
+                    sessionId = null
+                    isInitialized = false
+                }
+
+                // Perform fresh initialization and retry once
+                val retryInit = initialize(preserveSession = false)
+                if (retryInit !is NetworkResult.Success) {
+                    if (enableLogging) Log.e("KeyAuthRepository", "❌ Re-initialization failed: ${(retryInit as? NetworkResult.Error)?.message}")
+                    return@withContext NetworkResult.Error("Re-initialization failed: ${(retryInit as? NetworkResult.Error)?.message}")
+                }
+
+                if (enableLogging) Log.d("KeyAuthRepository", "🔁 Re-initialization successful, retrying license authentication")
+                val retryAttempt = authenticateWithLicense(licenseKey)
+                return@withContext retryAttempt
+            }
+
+            // Otherwise return original error
+            return@withContext firstAttempt
+
+        } catch (e: Exception) {
+            if (enableLogging) Log.e("KeyAuthRepository", "❌ authenticateWithLicenseAllowHwidUpdate failed", e)
+            return@withContext NetworkResult.Error("Authentication error: ${e.message}")
+        }
+    }
 }
 
 /**
