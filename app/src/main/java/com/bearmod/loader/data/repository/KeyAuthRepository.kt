@@ -626,7 +626,7 @@ class KeyAuthRepository(
     /**
      * Attempt HWID-based authentication using stored license key
      */
-    private suspend fun attemptHWIDBasedAuth(): NetworkResult<KeyAuthResponse> = withContext(Dispatchers.IO) {
+    internal suspend fun attemptHWIDBasedAuth(): NetworkResult<KeyAuthResponse> = withContext(Dispatchers.IO) {
         try {
             _authFlowState.value = AuthFlowState.AUTHENTICATING_WITH_LICENSE
 

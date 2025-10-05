@@ -32,7 +32,7 @@ import java.io.InputStreamReader
  * Zeus-style PUBG Variants Fragment with Bear Logo branding
  * Integrated into KeyAuth Loader navigation system
  */
-class ZeusPubgFragment : Fragment() {
+class ZeusPubgFragment : BasePubgFragment() {
 
     private val REQUEST_PERMISSIONS_CODE = 1001
     private lateinit var recyclerView: RecyclerView
@@ -314,52 +314,29 @@ class ZeusPubgViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val context = itemView.context
 
         try {
-            // Simple approach: Launch both downloads via browser
-            // This avoids permission issues and works on all devices
+            val apkName = variant.name.replace(" ", "_") + "_${variant.version}.apk"
+            val obbName = variant.name.replace(" ", "_") + "_${variant.version}.obb"
 
-            // Show download instructions
-            AlertDialog.Builder(context)
-                .setTitle("Download ${variant.name}")
-                .setMessage("Two downloads will start:\n\n1. APK file (install this)\n2. OBB file (place in Android/obb/)\n\nBoth will open in your browser.")
-                .setPositiveButton("Start Downloads") { _, _ ->
+            com.bearmod.loader.utils.DownloadHelper.enqueueDownloads(
+                context,
+                variant.downloadUrl,
+                variant.obbUrl,
+                apkName,
+                obbName
+            )
 
-                    // Launch APK download
-                    val apkIntent = Intent(Intent.ACTION_VIEW, Uri.parse(variant.downloadUrl))
-                    context.startActivity(apkIntent)
-
-                    // Small delay then launch OBB download
-                    android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                        val obbIntent = Intent(Intent.ACTION_VIEW, Uri.parse(variant.obbUrl))
-                        context.startActivity(obbIntent)
-                    }, 2000) // 2 second delay
-
-                    Toast.makeText(
-                        context,
-                        "Downloads started!\nAPK: Install after download\nOBB: Place in Android/obb/",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-                .setNegativeButton("Cancel", null)
-                .show()
+            Toast.makeText(
+                context,
+                "Downloads enqueued. Check notifications for progress.",
+                Toast.LENGTH_LONG
+            ).show()
 
         } catch (e: Exception) {
-            // Fallback: Just open APK download
-            try {
-                val apkIntent = Intent(Intent.ACTION_VIEW, Uri.parse(variant.downloadUrl))
-                context.startActivity(apkIntent)
-
-                Toast.makeText(
-                    context,
-                    "APK download started. OBB download: ${variant.obbUrl}",
-                    Toast.LENGTH_LONG
-                ).show()
-            } catch (e2: Exception) {
-                Toast.makeText(
-                    context,
-                    "Download failed. APK: ${variant.downloadUrl}",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
+            Toast.makeText(
+                context,
+                "Download failed: ${e.message}",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 }

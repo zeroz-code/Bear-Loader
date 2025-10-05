@@ -1,0 +1,171 @@
+﻿2025-10-05T03:17:37.1564594Z Current runner version: '2.328.0'
+2025-10-05T03:17:37.1589195Z ##[group]Runner Image Provisioner
+2025-10-05T03:17:37.1590086Z Hosted Compute Agent
+2025-10-05T03:17:37.1590645Z Version: 20250912.392
+2025-10-05T03:17:37.1591201Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+2025-10-05T03:17:37.1591934Z Build Date: 2025-09-12T15:23:14Z
+2025-10-05T03:17:37.1592540Z ##[endgroup]
+2025-10-05T03:17:37.1593237Z ##[group]Operating System
+2025-10-05T03:17:37.1593870Z Ubuntu
+2025-10-05T03:17:37.1594326Z 24.04.3
+2025-10-05T03:17:37.1594785Z LTS
+2025-10-05T03:17:37.1595194Z ##[endgroup]
+2025-10-05T03:17:37.1595761Z ##[group]Runner Image
+2025-10-05T03:17:37.1596291Z Image: ubuntu-24.04
+2025-10-05T03:17:37.1596775Z Version: 20250929.60.1
+2025-10-05T03:17:37.1597846Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250929.60/images/ubuntu/Ubuntu2404-Readme.md
+2025-10-05T03:17:37.1599317Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250929.60
+2025-10-05T03:17:37.1600352Z ##[endgroup]
+2025-10-05T03:17:37.1602841Z ##[group]GITHUB_TOKEN Permissions
+2025-10-05T03:17:37.1604839Z Actions: write
+2025-10-05T03:17:37.1605381Z Attestations: write
+2025-10-05T03:17:37.1605850Z Checks: write
+2025-10-05T03:17:37.1606419Z Contents: write
+2025-10-05T03:17:37.1606919Z Deployments: write
+2025-10-05T03:17:37.1607423Z Discussions: write
+2025-10-05T03:17:37.1607981Z Issues: write
+2025-10-05T03:17:37.1608433Z Metadata: read
+2025-10-05T03:17:37.1608908Z Models: read
+2025-10-05T03:17:37.1609463Z Packages: write
+2025-10-05T03:17:37.1610001Z Pages: write
+2025-10-05T03:17:37.1610454Z PullRequests: write
+2025-10-05T03:17:37.1611024Z RepositoryProjects: write
+2025-10-05T03:17:37.1611561Z SecurityEvents: write
+2025-10-05T03:17:37.1612203Z Statuses: write
+2025-10-05T03:17:37.1613149Z ##[endgroup]
+2025-10-05T03:17:37.1615609Z Secret source: Actions
+2025-10-05T03:17:37.1616318Z Prepare workflow directory
+2025-10-05T03:17:37.1950586Z Prepare all required actions
+2025-10-05T03:17:37.1990902Z Getting action download info
+2025-10-05T03:17:37.6574997Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-10-05T03:17:37.8450989Z Download action repository 'actions/setup-java@v4' (SHA:c5195efecf7bdfc987ee8bae7a71cb8b11521c00)
+2025-10-05T03:17:38.4607896Z Download action repository 'advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6' (SHA:571e99aab1055c2e71a1e2309b9691de18d6b7d6)
+2025-10-05T03:17:40.0125753Z Complete job name: build
+2025-10-05T03:17:40.0796781Z ##[group]Run actions/checkout@v4
+2025-10-05T03:17:40.0797451Z with:
+2025-10-05T03:17:40.0797709Z   repository: kothar-1992/Bear-Loader
+2025-10-05T03:17:40.0798221Z   token: ***
+2025-10-05T03:17:40.0798453Z   ssh-strict: true
+2025-10-05T03:17:40.0798679Z   ssh-user: git
+2025-10-05T03:17:40.0798914Z   persist-credentials: true
+2025-10-05T03:17:40.0799177Z   clean: true
+2025-10-05T03:17:40.0799426Z   sparse-checkout-cone-mode: true
+2025-10-05T03:17:40.0799701Z   fetch-depth: 1
+2025-10-05T03:17:40.0799942Z   fetch-tags: false
+2025-10-05T03:17:40.0800185Z   show-progress: true
+2025-10-05T03:17:40.0800408Z   lfs: false
+2025-10-05T03:17:40.0800622Z   submodules: false
+2025-10-05T03:17:40.0800850Z   set-safe-directory: true
+2025-10-05T03:17:40.0801444Z ##[endgroup]
+2025-10-05T03:17:40.1900555Z Syncing repository: kothar-1992/Bear-Loader
+2025-10-05T03:17:40.1902068Z ##[group]Getting Git version info
+2025-10-05T03:17:40.1902565Z Working directory is '/home/runner/work/Bear-Loader/Bear-Loader'
+2025-10-05T03:17:40.1903616Z [command]/usr/bin/git version
+2025-10-05T03:17:40.1984393Z git version 2.51.0
+2025-10-05T03:17:40.2011078Z ##[endgroup]
+2025-10-05T03:17:40.2025986Z Temporarily overriding HOME='/home/runner/work/_temp/fd4d27b5-79f2-4bc7-ad3e-f044a4c473c5' before making global git config changes
+2025-10-05T03:17:40.2027294Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-05T03:17:40.2031989Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Bear-Loader/Bear-Loader
+2025-10-05T03:17:40.2069914Z Deleting the contents of '/home/runner/work/Bear-Loader/Bear-Loader'
+2025-10-05T03:17:40.2073830Z ##[group]Initializing the repository
+2025-10-05T03:17:40.2077892Z [command]/usr/bin/git init /home/runner/work/Bear-Loader/Bear-Loader
+2025-10-05T03:17:40.2207929Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-10-05T03:17:40.2208991Z hint: is subject to change. To configure the initial branch name to use in all
+2025-10-05T03:17:40.2209872Z hint: of your new repositories, which will suppress this warning, call:
+2025-10-05T03:17:40.2210511Z hint:
+2025-10-05T03:17:40.2211041Z hint: 	git config --global init.defaultBranch <name>
+2025-10-05T03:17:40.2211652Z hint:
+2025-10-05T03:17:40.2212238Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-10-05T03:17:40.2213429Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-10-05T03:17:40.2214184Z hint:
+2025-10-05T03:17:40.2214552Z hint: 	git branch -m <name>
+2025-10-05T03:17:40.2214951Z hint:
+2025-10-05T03:17:40.2215495Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-10-05T03:17:40.2216464Z Initialized empty Git repository in /home/runner/work/Bear-Loader/Bear-Loader/.git/
+2025-10-05T03:17:40.2234216Z [command]/usr/bin/git remote add origin https://github.com/kothar-1992/Bear-Loader
+2025-10-05T03:17:40.2281425Z ##[endgroup]
+2025-10-05T03:17:40.2282240Z ##[group]Disabling automatic garbage collection
+2025-10-05T03:17:40.2289944Z [command]/usr/bin/git config --local gc.auto 0
+2025-10-05T03:17:40.2324480Z ##[endgroup]
+2025-10-05T03:17:40.2325118Z ##[group]Setting up auth
+2025-10-05T03:17:40.2336201Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-05T03:17:40.2373544Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-05T03:17:40.2810869Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-05T03:17:40.2841939Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-05T03:17:40.3067373Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-10-05T03:17:40.3111574Z ##[endgroup]
+2025-10-05T03:17:40.3112469Z ##[group]Fetching the repository
+2025-10-05T03:17:40.3121212Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7418572496b3fad4026f650ddcd9e7fbf0c21d6a:refs/remotes/pull/1/merge
+2025-10-05T03:17:40.8198672Z From https://github.com/kothar-1992/Bear-Loader
+2025-10-05T03:17:40.8199611Z  * [new ref]         7418572496b3fad4026f650ddcd9e7fbf0c21d6a -> pull/1/merge
+2025-10-05T03:17:40.8230883Z ##[endgroup]
+2025-10-05T03:17:40.8231570Z ##[group]Determining the checkout info
+2025-10-05T03:17:40.8233170Z ##[endgroup]
+2025-10-05T03:17:40.8238403Z [command]/usr/bin/git sparse-checkout disable
+2025-10-05T03:17:40.8279603Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-10-05T03:17:40.8307207Z ##[group]Checking out the ref
+2025-10-05T03:17:40.8311032Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1/merge
+2025-10-05T03:17:40.8582159Z Note: switching to 'refs/remotes/pull/1/merge'.
+2025-10-05T03:17:40.8582878Z 
+2025-10-05T03:17:40.8583294Z You are in 'detached HEAD' state. You can look around, make experimental
+2025-10-05T03:17:40.8584169Z changes and commit them, and you can discard any commits you make in this
+2025-10-05T03:17:40.8585144Z state without impacting any branches by switching back to a branch.
+2025-10-05T03:17:40.8585602Z 
+2025-10-05T03:17:40.8585830Z If you want to create a new branch to retain commits you create, you may
+2025-10-05T03:17:40.8586704Z do so (now or later) by using -c with the switch command. Example:
+2025-10-05T03:17:40.8586976Z 
+2025-10-05T03:17:40.8587112Z   git switch -c <new-branch-name>
+2025-10-05T03:17:40.8587312Z 
+2025-10-05T03:17:40.8587446Z Or undo this operation with:
+2025-10-05T03:17:40.8587663Z 
+2025-10-05T03:17:40.8587807Z   git switch -
+2025-10-05T03:17:40.8587971Z 
+2025-10-05T03:17:40.8588237Z Turn off this advice by setting config variable advice.detachedHead to false
+2025-10-05T03:17:40.8615833Z 
+2025-10-05T03:17:40.8616596Z HEAD is now at 7418572 Merge a981be3ef245da0574dd3a5d0f3143849fcf87c7 into 40f66e3207809a949c81c1bd24d5cd41b15077ab
+2025-10-05T03:17:40.8618723Z ##[endgroup]
+2025-10-05T03:17:40.8636546Z [command]/usr/bin/git log -1 --format=%H
+2025-10-05T03:17:40.8660696Z 7418572496b3fad4026f650ddcd9e7fbf0c21d6a
+2025-10-05T03:17:40.8929560Z ##[group]Run actions/setup-java@v4
+2025-10-05T03:17:40.8929889Z with:
+2025-10-05T03:17:40.8930103Z   java-version: 17
+2025-10-05T03:17:40.8930345Z   distribution: temurin
+2025-10-05T03:17:40.8930628Z   cache: maven
+2025-10-05T03:17:40.8930845Z   java-package: jdk
+2025-10-05T03:17:40.8931076Z   check-latest: false
+2025-10-05T03:17:40.8931303Z   server-id: github
+2025-10-05T03:17:40.8931531Z   server-username: GITHUB_ACTOR
+2025-10-05T03:17:40.8931802Z   server-password: GITHUB_TOKEN
+2025-10-05T03:17:40.8932063Z   overwrite-settings: true
+2025-10-05T03:17:40.8932306Z   job-status: success
+2025-10-05T03:17:40.8932869Z   token: ***
+2025-10-05T03:17:40.8933136Z ##[endgroup]
+2025-10-05T03:17:41.0932409Z ##[group]Installed distributions
+2025-10-05T03:17:41.1378599Z Resolved Java 17.0.16+8 from tool-cache
+2025-10-05T03:17:41.1379958Z Setting Java 17.0.16+8 as the default
+2025-10-05T03:17:41.1401866Z Creating toolchains.xml for JDK version 17 from temurin
+2025-10-05T03:17:41.1531617Z Writing to /home/runner/.m2/toolchains.xml
+2025-10-05T03:17:41.1532371Z 
+2025-10-05T03:17:41.1532944Z Java configuration:
+2025-10-05T03:17:41.1533441Z   Distribution: temurin
+2025-10-05T03:17:41.1542915Z   Version: 17.0.16+8
+2025-10-05T03:17:41.1543529Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+2025-10-05T03:17:41.1544063Z 
+2025-10-05T03:17:41.1544689Z ##[endgroup]
+2025-10-05T03:17:41.1557947Z Creating settings.xml with server-id: github
+2025-10-05T03:17:41.1561133Z Writing to /home/runner/.m2/settings.xml
+2025-10-05T03:17:41.1989950Z ##[error]No file in /home/runner/work/Bear-Loader/Bear-Loader matched to [**/pom.xml], make sure you have checked out the target repository
+2025-10-05T03:17:41.2229928Z Post job cleanup.
+2025-10-05T03:17:41.4045705Z Post job cleanup.
+2025-10-05T03:17:41.4999826Z [command]/usr/bin/git version
+2025-10-05T03:17:41.5050701Z git version 2.51.0
+2025-10-05T03:17:41.5116800Z Temporarily overriding HOME='/home/runner/work/_temp/07e1ea4d-86fe-4ac1-938b-f0725e42be64' before making global git config changes
+2025-10-05T03:17:41.5118056Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-05T03:17:41.5134505Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Bear-Loader/Bear-Loader
+2025-10-05T03:17:41.5175008Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-05T03:17:41.5211242Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-05T03:17:41.5473143Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-05T03:17:41.5497730Z http.https://github.com/.extraheader
+2025-10-05T03:17:41.5511163Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-10-05T03:17:41.5544723Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-05T03:17:41.5875902Z Cleaning up orphan processes

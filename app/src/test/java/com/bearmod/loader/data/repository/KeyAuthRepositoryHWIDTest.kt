@@ -13,6 +13,8 @@ import org.junit.Test
 import org.mockito.kotlin.any
 import org.mockito.kotlin.doReturn
 import org.mockito.kotlin.mock
+import org.mockito.kotlin.whenever
+import org.mockito.kotlin.anyOrNull
 import retrofit2.Response
 
 class KeyAuthRepositoryHWIDTest {
@@ -42,7 +44,7 @@ class KeyAuthRepositoryHWIDTest {
         securePreferences.storeHWID("old-hwid")
 
         // HWID provider returns a different HWID
-        doReturn("new-hwid").whenever(hwidProvider).getHWID()
+    whenever(hwidProvider.getHWID()).doReturn("new-hwid")
 
         val result = repository.restoreSession()
 
@@ -56,12 +58,12 @@ class KeyAuthRepositoryHWIDTest {
         securePreferences.setDeviceRegistered("the-hwid", "license")
         securePreferences.storeHWID("the-hwid")
 
-        doReturn("the-hwid").whenever(hwidProvider).getHWID()
+    whenever(hwidProvider.getHWID()).doReturn("the-hwid")
 
         // Mock init and checkSession API calls used during restore
         val successResp = KeyAuthResponse(success = true, message = "ok", sessionId = "stored-session")
-        doReturn(Response.success(successResp)).whenever(apiService).init(any(), any(), any(), any(), any())
-        doReturn(Response.success(successResp)).whenever(apiService).checkSession(any(), any(), any())
+    whenever(apiService.init(any<String>(), any<String>(), any<String>(), any<String>(), anyOrNull())).doReturn(Response.success(successResp))
+    whenever(apiService.checkSession(any<String>(), any<String>(), any<String>(), any<String>())).doReturn(Response.success(successResp))
 
         val result = repository.restoreSession()
         assertTrue(result is com.bearmod.loader.data.model.SessionRestoreResult.Success)
@@ -74,11 +76,11 @@ class KeyAuthRepositoryHWIDTest {
         securePreferences.setDeviceRegistered("the-hwid", "licenseKey123")
         securePreferences.storeHWID("the-hwid")
 
-        doReturn("the-hwid").whenever(hwidProvider).getHWID()
+    whenever(hwidProvider.getHWID()).doReturn("the-hwid")
 
         val authResp = KeyAuthResponse(success = true, message = "ok", sessionId = "new-session")
-        doReturn(Response.success(authResp)).whenever(apiService).init(any(), any(), any(), any(), any())
-        doReturn(Response.success(authResp)).whenever(apiService).license(any(), any(), any(), any(), any())
+    whenever(apiService.init(any<String>(), any<String>(), any<String>(), any<String>(), anyOrNull())).doReturn(Response.success(authResp))
+    whenever(apiService.license(any<String>(), any<String>(), any<String>(), any<String>(), any<String>(), any<String>())).doReturn(Response.success(authResp))
 
         val result = repository.attemptHWIDBasedAuth()
         assertTrue(result is NetworkResult.Success)

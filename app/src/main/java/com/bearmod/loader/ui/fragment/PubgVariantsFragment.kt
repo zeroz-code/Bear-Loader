@@ -25,7 +25,7 @@ import com.bearmod.loader.utils.PermissionManager
  * Shows list of available PUBG versions with download functionality
  * Enhanced with JSON manifest loading and Android 11+ permissions
  */
-class PubgVariantsFragment : Fragment() {
+class PubgVariantsFragment : BasePubgFragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: PubgVariantAdapter
@@ -46,8 +46,8 @@ class PubgVariantsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Initialize utilities
-        packageChecker = PackageVersionChecker(requireContext())
-        permissionManager = PermissionManager(requireContext())
+    packageChecker = PackageVersionChecker(requireContext())
+    permissionManager = getPermissionManager()
 
         setupRecyclerView(view)
         // Footer buttons moved to Settings fragment
@@ -245,8 +245,19 @@ class PubgVariantsFragment : Fragment() {
             Toast.LENGTH_SHORT
         ).show()
 
-        // TODO: Implement actual download logic
-        // This would integrate with your OTA download system
+    // Use DownloadHelper to enqueue downloads via DownloadManager (no browser fallback)
+        val apkName = variant.apk?.name ?: "${variant.id}.apk"
+        val obbName = variant.obb?.name ?: "${variant.id}.obb"
+
+        com.bearmod.loader.utils.DownloadHelper.enqueueDownloads(
+            requireContext(),
+            variant.apk?.url,
+            variant.obb?.url,
+            apkName,
+            obbName
+        )
+
+        // Show installing state as before
         startDownload(variant)
     }
 
@@ -258,9 +269,18 @@ class PubgVariantsFragment : Fragment() {
             Toast.LENGTH_SHORT
         ).show()
 
-        // TODO: Implement actual update logic
-        // This would integrate with your OTA download system
-        startDownload(variant) // Same as download for now
+        val apkName = variant.apk?.name ?: "${variant.id}.apk"
+        val obbName = variant.obb?.name ?: "${variant.id}.obb"
+
+        com.bearmod.loader.utils.DownloadHelper.enqueueDownloads(
+            requireContext(),
+            variant.apk?.url,
+            variant.obb?.url,
+            apkName,
+            obbName
+        )
+
+        startDownload(variant)
     }
 
     private fun onOpenClicked(variant: PubgVariant) {

@@ -269,35 +269,21 @@ class PubgViewHolder(itemView: android.view.View) : RecyclerView.ViewHolder(item
 
     private fun startDownload(variant: PubgVariant) {
         val context = itemView.context
-        val downloadManager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-
         try {
-            // Download OBB file using DownloadManager
-            val obbFileName = variant.obbUrl.substringAfterLast('/')
-            val obbFile = File(Environment.getExternalStorageDirectory(), "Android/obb/$obbFileName")
+            val apkName = variant.name.replace(" ", "_") + "_${variant.version}.apk"
+            val obbName = variant.name.replace(" ", "_") + "_${variant.version}.obb"
 
-            // Create directory if it doesn't exist
-            if (!obbFile.parentFile?.exists()!!) {
-                obbFile.parentFile?.mkdirs()
-            }
-
-            val obbRequest = DownloadManager.Request(Uri.parse(variant.obbUrl)).apply {
-                setTitle("Downloading ${variant.name} OBB")
-                setDescription("Downloading game data files...")
-                setDestinationUri(Uri.fromFile(obbFile))
-                setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
-            }
-
-            val downloadId = downloadManager.enqueue(obbRequest)
-
-            // Launch APK download via browser
-            val apkIntent = Intent(Intent.ACTION_VIEW, Uri.parse(variant.downloadUrl))
-            context.startActivity(apkIntent)
+            com.bearmod.loader.utils.DownloadHelper.enqueueDownloads(
+                context,
+                variant.downloadUrl,
+                variant.obbUrl,
+                apkName,
+                obbName
+            )
 
             Toast.makeText(
                 context,
-                "Started downloading ${variant.name}\nOBB: Background download\nAPK: Browser download",
+                "Downloads enqueued. Check notifications for progress.",
                 Toast.LENGTH_LONG
             ).show()
 
