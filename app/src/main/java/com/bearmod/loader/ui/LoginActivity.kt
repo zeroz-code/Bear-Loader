@@ -60,6 +60,9 @@ class LoginActivity : AppCompatActivity() {
         setupObservers()
         loadSavedPreferences()
 
+    // Run entry animations for premium feel
+    runEntryAnimations()
+
         // Enhanced initialization with session restoration
         Log.d("LoginActivity", "🚀 Starting enhanced KeyAuth initialization with session restoration")
 
@@ -70,6 +73,32 @@ class LoginActivity : AppCompatActivity() {
         } else {
             Log.d("LoginActivity", "🔄 Standard initialization (no auto-login)")
             viewModel.initializeApp()
+        }
+    }
+
+    private fun runEntryAnimations() {
+        try {
+            val slideIn = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.slide_in_up)
+            binding.cardLogo.startAnimation(slideIn)
+            binding.tvAppTitle.startAnimation(slideIn)
+            binding.cardLicenseInput.startAnimation(slideIn)
+            binding.btnLogin.startAnimation(slideIn)
+
+            // Button touch feedback to scale slightly on press/release
+            binding.btnLogin.setOnTouchListener { v, event ->
+                when (event.action) {
+                    android.view.MotionEvent.ACTION_DOWN -> {
+                        v.startAnimation(android.view.animation.AnimationUtils.loadAnimation(this, R.anim.button_press_scale))
+                    }
+                    android.view.MotionEvent.ACTION_UP, android.view.MotionEvent.ACTION_CANCEL -> {
+                        v.startAnimation(android.view.animation.AnimationUtils.loadAnimation(this, R.anim.button_release_scale))
+                    }
+                }
+                // Return false so click still propagates
+                false
+            }
+        } catch (e: Exception) {
+            // Ignore if animations fail on older devices
         }
     }
     

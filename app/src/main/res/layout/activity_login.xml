@@ -14,6 +14,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="24dp"
+        android:animateLayoutChanges="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="100dp"
         app:cardElevation="24dp"
@@ -48,6 +49,7 @@
     <TextView
         android:id="@+id/tvAppTitle"
         style="@style/ModernTitle"
+        android:animateLayoutChanges="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -68,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="20dp"
+        android:animateLayoutChanges="true"
         android:background="@drawable/card_3d_elevated"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,6 +153,8 @@
         android:text="@string/login_button"
         android:elevation="12dp"
         android:translationZ="8dp"
+    android:stateListAnimator="@animator/button_elevation_anim"
+    android:foregroundTintMode="src_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutCheckboxes" />
