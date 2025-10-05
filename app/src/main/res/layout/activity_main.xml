@@ -8,6 +8,14 @@
     android:fitsSystemWindows="true"
     tools:context=".ui.MainActivity">
 
+    <!-- Hidden logo for shared element transition target -->
+    <ImageView
+        android:id="@+id/iv_bear_logo_main"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:transitionName="bear_logo_transition"
+        android:visibility="invisible" />
+
     <!-- Fragment Container -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"

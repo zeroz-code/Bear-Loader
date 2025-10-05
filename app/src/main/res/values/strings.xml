@@ -12,6 +12,9 @@
 
     <!-- Bear Logo -->
     <string name="bear_logo_description">Application Logo</string>
+    <string name="toggle_theme">Toggle theme (light/dark)</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
 
     <!-- License Status Display -->
     <string name="license_status_title">License Status</string>
