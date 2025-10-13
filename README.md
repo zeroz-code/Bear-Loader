@@ -157,3 +157,37 @@ For KeyAuth-specific issues, visit:
 - [KeyAuth Telegram](https://t.me/keyauth)
 
 For Android development issues, refer to the Android documentation or create an issue in this repository.
+
+
+<!-- PROJECT_METRICS_START -->
+# Project Metrics
+Generated: 2025-10-13T06:16:31.926Z
+
+## Pull Requests
+Open PRs: 0
+
+Open PRs by age:
+- <= 7 days: 0
+- <= 14 days: 0
+- <= 30 days: 0
+- > 30 days: 0
+
+## Merge Metrics
+Mean time to merge (last 30 days): 0.00 days
+Median time to merge (last 30 days): 0.00 days
+Average review comments (merged PRs): 0.00
+
+## CI Metrics
+Workflow runs (last 30 days): 3
+Pass rate: 0%
+
+## Issues
+Open issues: 0
+Open issues by age:
+- <= 7 days: 0
+- <= 14 days: 0
+- <= 30 days: 0
+- > 30 days: 0
+
+Stale issues (> 60 days): 0
+<!-- PROJECT_METRICS_END -->
